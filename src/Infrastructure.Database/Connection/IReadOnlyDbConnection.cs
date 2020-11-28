@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Harbin.Infrastructure.Database.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
@@ -13,5 +14,6 @@ namespace Harbin.Infrastructure.Database.Connection
     /// </summary>
     public interface IReadOnlyDbConnection : IReadDbConnection
     {
+        IReadOnlyDbRepository<TEntity> GetReadOnlyRepository<TEntity>();
     }
 }

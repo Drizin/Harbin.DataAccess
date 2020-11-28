@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Harbin.Infrastructure.Database.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
@@ -12,5 +13,13 @@ namespace Harbin.Infrastructure.Database.Connection
     /// </summary>
     public interface IReadDbConnection<DB> : IReadDbConnection
     {
+        #region GetReadRepository<T>
+        /// <summary>
+        /// Get a Repository which you know that resides in this physical database
+        /// Instead of this you can also create extensions methods to access all repositories which belong to a given physical database, like this:
+        /// public static IReadDbRepository<YourEntity> GetYourEntityRepository(this IReadDbConnection<YourDatabase> db) => new ReadDbRepository<YourEntity, YourDatabase>(db);
+        /// </summary>
+        IReadDbRepository<TEntity, DB> GetReadRepository<TEntity>();
+        #endregion
     }
 }

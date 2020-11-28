@@ -25,8 +25,4 @@ namespace Harbin.Infrastructure.Database.Connection
 
         #endregion
     }
-    public interface IReadWriteDbConnection<DB> : IReadWriteDbConnection, IReadDbConnection<DB>
-    {
-
-    }
 }

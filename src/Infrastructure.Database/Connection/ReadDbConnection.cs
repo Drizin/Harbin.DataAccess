@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Harbin.Infrastructure.Database.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,9 +9,9 @@ namespace Harbin.Infrastructure.Database.Connection
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
-    /// and exposes facade methods to invoke Dapper Query extensions (not Execute extensions)
+    /// and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
     /// </summary>
-    public abstract class ReadDbConnection : IReadDbConnection, IReadOnlyDbConnection, IDbConnection
+    public abstract class ReadDbConnection : IReadDbConnection, IDbConnection
     {
         public readonly IDbConnection _dbConnection;
         public IDbConnection DbConnection { get { return _dbConnection; } }
@@ -319,6 +320,35 @@ namespace Harbin.Infrastructure.Database.Connection
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+        #endregion
+
+
+        #region GetReadRepository<T>
+        /// <summary>
+        /// Get a Repository which you know that resides in this physical database
+        /// Instead of this you can also create extensions methods to access all repositories which belong to a given physical database, like this:
+        /// public static IReadDbRepository<YourEntity> GetYourEntityRepository(this IReadDbConnection<YourDatabase> db) => new ReadDbRepository<YourEntity, YourDatabase>(db);
+        /// </summary>
+        public virtual IReadDbRepository<TEntity> GetReadRepository<TEntity>() 
+        {
+            if (_registeredTypes.ContainsKey(typeof(TEntity)))
+                return (IReadDbRepository<TEntity>)Activator.CreateInstance(_registeredTypes[typeof(TEntity)], new object[] { this });
+            return new ReadDbRepository<TEntity>(this);
+        }
+
+        private static Dictionary<Type, Type> _registeredTypes = new Dictionary<Type, Type>();
+        /// <summary>
+        /// Register a custom Repository
+        /// </summary>
+        public static void RegisterRepositoryType<TEntity, TRepository>() where TRepository : IReadDbRepository<TEntity>
+        {
+            if (typeof(TRepository).IsAbstract || typeof(TRepository).IsInterface)
+                throw new ArgumentException("Cannot create instance of interface or abstract class");
+
+            _registeredTypes.Add(typeof(TEntity), typeof(TRepository));
+        }
+        public static void CleanRegisteredRepositories() => _registeredTypes.Clear();
+
         #endregion
 
     }

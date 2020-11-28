@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Harbin.Infrastructure.Database.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
@@ -16,138 +17,55 @@ namespace Harbin.Infrastructure.Database.Connection
         /// </summary>
         IDbConnection DbConnection { get; }
 
-        #region Dapper (ICompleteQuery<T>.Query<T>)
+        #region .Query<TEntity>
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        IEnumerable<T> Query<T>(string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
+        IEnumerable<TEntity> Query<TEntity>(string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        T QueryFirst<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        TEntity QueryFirst<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        T QueryFirstOrDefault<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        TEntity QueryFirstOrDefault<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        T QuerySingle<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        TEntity QuerySingle<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        T QuerySingleOrDefault<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        TEntity QuerySingleOrDefault<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
         #endregion
 
-        #region Dapper (ICompleteQuery<T>.Query() dynamic)
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        IEnumerable<dynamic> Query(string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        dynamic QueryFirst(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        dynamic QueryFirstOrDefault(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        dynamic QuerySingle(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        #endregion
-
-        #region Dapper (ICompleteQuery<T>.Query<object>())
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        IEnumerable<object> Query(Type type, string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        object QueryFirst(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        object QueryFirstOrDefault(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        object QuerySingle(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        #endregion
-
-        #region Dapper (ICompleteQuery<T>.QueryAsync<T>)
+        #region .QueryAsync<TEntity>
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        Task<IEnumerable<T>> QueryAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        Task<IEnumerable<TEntity>> QueryAsync<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        Task<T> QueryFirstAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        Task<TEntity> QueryFirstAsync<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        Task<T> QueryFirstOrDefaultAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        Task<TEntity> QueryFirstOrDefaultAsync<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
-        Task<T> QuerySingleAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        Task<T> QuerySingleOrDefaultAsync<T>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        Task<TEntity> QuerySingleAsync<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        Task<TEntity> QuerySingleOrDefaultAsync<TEntity>(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
         #endregion
 
-        #region Dapper (ICompleteQuery<T>.QueryAsync() dynamic)
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        Task<IEnumerable<dynamic>> QueryAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        IReadDbRepository<TEntity> GetReadRepository<TEntity>();
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        Task<dynamic> QueryFirstAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        Task<dynamic> QueryFirstOrDefaultAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as dynamic objects.
-        /// </summary>
-        Task<dynamic> QuerySingleAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        #endregion
-
-        #region Dapper (ICompleteQuery<T>.QueryAsync<object>)
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        Task<IEnumerable<object>> QueryAsync(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        Task<object> QueryFirstAsync(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        Task<object> QueryFirstOrDefaultAsync(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as type.
-        /// </summary>
-        Task<object> QuerySingleAsync(Type type, string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        #endregion
     }
 }
