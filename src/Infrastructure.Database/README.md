@@ -9,13 +9,13 @@ Harbin Database Library was designed based on the following ideas:
 - Wrappers around IDbConnection, but which also implement IDbConnection so can be used as regular connections.
 - "Bare metal", does not try to "hide" ADO.NET or Dapper, so you can use the full power of Dapper, IDbTransactions, etc.
 - Easy to manage multiple database connections, either to different databases (e.g. distributed databases, microservices, heterogeneous databases) or to differentiate masters vs read-only replicas.
-- ReadOnlyConnection, ReadOnlyConnection<DB>, ReadWriteConnection, ReadWriteConnection<DB>.
-- Those classes respectively can build ReadOnlyRepository<TEntity> or ReadWriteRepository<TEntity> which are Generic Repositories (Generic Repository Patter) for your Entities.
-- ReadOnlyRepository<TEntity> includes facades to Dapper Query Methods, and also facades to DapperQueryBuilder methods.
+- ReadOnlyDbConnection, ReadOnlyDbConnection<DB>, ReadWriteDbConnection, ReadWriteDbConnection<DB>.
+- Those classes respectively can build ReadRepository<TEntity> or ReadWriteRepository<TEntity> which are Generic Repositories (Generic Repository Patter) for your Entities.
+- ReadRepository<TEntity> includes facades to Dapper Query Methods, and also facades to DapperQueryBuilder methods.
 - ReadWriteRepository<TEntity> includes facades to Dapper FastCRUD methods so you can easily get INSERT/UPDATE/DELETE as long as you decorate your entities with attributes like **[Key]** and **[DatabaseGenerated(DatabaseGeneratedOption.Identity)]** .
-- Repositories (ReadOnlyRepository / ReadWriteRepository) and Connections (ReadOnlyConnection / ReadWriteConnection) can be extended either through method extensions or through inheritance.
-- By keeping Queries on ReadOnlyRepository and DbCommands on ReadWriteRepository you're isolating your Queries and Commands (CQRS).
-- You can unit test your application even if it depends on ReadOnlyConnection, ReadWriteConnection, ReadOnlyRepository, ReadWriteRepository, etc. They all can be "faked" using inheritance or a mocking library.
+- Repositories (ReadRepository / ReadWriteRepository) and Connections (ReadConnection / ReadWriteDbConnection) can be extended either through method extensions or through inheritance.
+- By keeping Queries on ReadRepository and DbCommands on ReadWriteRepository you're isolating your Queries and Commands (CQRS).
+- You can unit test your application even if it depends on ReadConnection, ReadWriteDbConnection, ReadRepository, ReadWriteRepository, etc. They all can be "faked" using inheritance or a mocking library.
 
 ## Installation
 Just install nuget package **[Harbin.Infrastructure.Database](https://www.nuget.org/packages/Harbin.Infrastructure.Database/)**, 
@@ -24,18 +24,22 @@ See documentation below, or more examples in [unit tests](https://github.com/Dri
 
 ## Documentation
 
-**Define your classes with attributes to describe Keys and Identity columns**
+**Define your Entities and decorate attributes on Primary Keys and Identity columns**
+
+Generic Repositories by default use Dapper FastCRUD so you have to describe your entities accordingly.
 
 ```cs
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+// AdventureWorks is a sample database which uses schemas for grouping tables
+// If table uses default schema and table name matches class name you don't need the [Table] attribute
 [Table("ContactType", Schema = "Person")]
 public partial class ContactType
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key] // column is part of primary key
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // column is auto-increment
     public int ContactTypeId { get; set; }
 
     public DateTime ModifiedDate { get; set; }
@@ -90,12 +94,160 @@ all = dynamicQuery.Query();
 ```
 
 **Adding reusable Queries and Commands using Extension Methods**
-...
+```cs
+public static class PersonQueryExtensions
+{
+  public static IEnumerable<Person> QueryRecentEmployees(this IReadDbRepository<Person> repo)
+  {
+    return repo.Query("SELECT TOP 10 * FROM [Person].[Person] WHERE [PersonType]='EM' ORDER BY [ModifiedDate] DESC");
+  }
+}
+
+public static class PersonDbCommandExtensions
+{
+  public static void UpdateCustomers(this IReadWriteDbRepository<Person> repo)
+  {
+    repo.Execute("UPDATE [Person].[Person] SET [FirstName]='Rick' WHERE [PersonType]='EM' ");
+  }
+}
+public void Sample()
+{
+  var repo = conn.GetReadWriteRepository<Person>();
+  
+  // Generic Repository methods
+  repo.Insert(new Person() { FirstName = "Rick", LastName = "Drizin" });
+  var allPeople = repo1.QueryAll();
+  
+  // Custom Extensions
+  repo.UpdateCustomers();
+  var recentEmployees = repo.QueryRecentEmployees();
+}
+```
 
 **Adding reusable Queries and Commands using inheritance**
-...
+```cs
+public class PersonRepository : ReadWriteDbRepository<Person>
+{
+  public PersonRepository(IReadWriteDbConnection db) : base(db)
+  {
+  }
+  public virtual IEnumerable<Person> QueryRecentEmployees()
+  {
+    return this.Query("SELECT TOP 10 * FROM [Person].[Person] WHERE [PersonType]='EM' ORDER BY [ModifiedDate] DESC");
+  }
+  public virtual void UpdateCustomers()
+  {
+    this.Execute("UPDATE [Person].[Person] SET [FirstName]='Rick' WHERE [PersonType]='EM' ");
+  }
+}
+public void Sample()
+{
+  // Registers that GetReadWriteRepository<Person>() should return a derived type PersonRepository
+  ReadWriteDbConnection.RegisterRepositoryType<Person, PersonRepository>();
+
+  var conn = new ReadWriteDbConnection(new System.Data.SqlClient.SqlConnection(connectionString));  
+  
+  // we know exactly what subtype to expect
+  var repo = (PersonRepository) conn.GetReadWriteRepository<Person>();
+  
+  repo.UpdateCustomers();
+  var recentEmployees = repo.QueryRecentEmployees();
+}
+
+```
+
+**Running multiple commands under a single ADO.NET transaction**
+```cs
+public static class PersonDbCommandExtensions
+  public static void UpdateCustomers(this IReadWriteDbRepository<Person> repo, IDbTransaction transaction = null, int? commandTimeout = null)
+  {
+    repo.Execute("UPDATE [Person].[Person] SET [FirstName]=@firstName WHERE [PersonType]='EM' ", 
+      param: new { firstName = "Rick" }, transaction: transaction, commandTimeout: commandTimeout);
+  }
+  public static void OtherCommand(this IReadWriteDbRepository<Person> repo, IDbTransaction transaction = null, int? commandTimeout = null)
+  {
+    repo.Execute("other command...", param: new { etc }, transaction: transaction, commandTimeout: commandTimeout);
+  }
+}
+public void SampleTransaction()
+{
+  var repo = conn.GetReadWriteRepository<Person>();
+
+  using (var trans = conn.BeginTransaction())
+  {
+    repo.UpdateCustomers(trans, commandTimeout: 30);
+    repo.QueryRecentEmployees(trans);
+    trans.Commit();
+  }
+}
+```
+
+**Managing different connections for Read-Write datastore and for Read Replicas**
+
+... ReadDbConnection vs ReadWriteDbConnection vs ReadOnlyDbConnection; ReadRepository vs ReadWriteRepository;
+
+**Managing different databases (distributed databases)**
+
+... ReadDbConnection<DB>, ReadWriteDbConnection<DB>
 
 
+**Mocking your repositories using a fake class**
+
+```cs
+public class FakePersonRepository : PersonRepository
+{
+  public FakePersonRepository(IReadWriteDbConnection db) : base(db)
+  {
+  }
+  public override IEnumerable<Person> QueryRecentEmployees()
+  {
+    Person p1 = new Person() { FirstName = "Rick", LastName = "Drizin" };
+    return new List<Person>() { p1 };
+  }
+  public override void UpdateCustomers()
+  {
+    // do nothing
+  }
+}
+public void SampleTest()
+{
+  // Registers that GetReadWriteRepository<Person>() should return a derived type FakePersonRepository
+  ReadWriteDbConnection.RegisterRepositoryType<Person, FakePersonRepository>();
+
+  var conn = new ReadWriteDbConnection(new System.Data.SqlClient.SqlConnection(connectionString));  
+  
+  // your business logic (and services) could still expect PersonRepository,
+  // but they will get a fake implementation
+  var repo = (PersonRepository) conn.GetReadWriteRepository<Person>();
+  
+  repo.UpdateCustomers();
+  var recentEmployees = repo.QueryRecentEmployees();
+}
+```
+
+**Mocking your repositories using a Mocking library (Moq)**
+```cs
+public void SampleTest()
+{
+  
+  // Mock PersonRepository with a fake implementation of QueryRecentEmployees()
+  Person p1 = new Person() { FirstName = "Rick", LastName = "Drizin" };
+  var mockRepo = new Mock<PersonRepository>();
+  mockRepo.Setup(repo => repo.QueryRecentEmployees()).Returns(new List<Person>() { p1 });
+  //mockRepo.Setup(repo => repo.UpdateCustomers()); // no need to mock anything since it's a void.. will just be ignored
+
+  // Mock ReadWriteDbConnection so when some service asks for IReadWriteRepository<Person>
+  // it will get the mocked repository
+  var mockConn = new Mock<ReadWriteDbConnection>();
+  mockConn.Setup(conn => conn.GetReadWriteRepository<Person>()).Returns((IReadWriteDbRepository<Person>)mockRepo.Object);
+
+  // Instead of injecting real connections into your services you should 
+  // provide the mocked connection which will provide a mocked repository
+  var svc = new MyAppService(mockConn.Object);
+  var recentEmployees = svc.QueryRecentEmployees();
+  Assert.That(recentEmployees.Count() == 1);
+}
+```
 
 ## License
 MIT License
