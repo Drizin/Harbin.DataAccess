@@ -7,17 +7,20 @@ Helps to manage connections to distributed databases and/or read-replicas.
 #  Design Principles
 
 Harbin Database Library was designed based on the following ideas:
-- Wrappers around IDbConnection, but which also implement IDbConnection so can be used as regular connections.
-- "Bare metal", does not try to "hide" ADO.NET or Dapper, so you can use the full power of Dapper, IDbTransactions, etc.
-- Easy to manage multiple database connections, either to different databases (e.g. distributed databases, microservices, heterogeneous databases) or to differentiate masters vs read-only replicas.
-- Connection classes for read-only and read-write connections: `ReadOnlyDbConnection`, `ReadOnlyDbConnection<DB>`, `ReadWriteDbConnection`, `ReadWriteDbConnection<DB>`.
-- Those classes respectively can build `ReadRepository<TEntity>` or `ReadWriteRepository<TEntity>` which are Generic Repositories (Generic Repository Patter) for your Entities.
-- `ReadRepository<TEntity>` includes facades to Dapper Query Methods, and also facades to DapperQueryBuilder methods.
-- `ReadWriteRepository<TEntity>` includes facades to Dapper FastCRUD methods so you can easily get INSERT/UPDATE/DELETE as long as you decorate your entities with attributes like **[Key]** and **[DatabaseGenerated(DatabaseGeneratedOption.Identity)]** .
-- Repositories (ReadRepository / ReadWriteRepository) and Connections (ReadConnection / ReadWriteDbConnection) can be extended either through method extensions or through inheritance.
-- By isolating read-only connections and read-write connections we can use read-replicas for large scale apps.
-- By isolating read-only repositories and read-write repositories we can isolate Queries and Commands (CQRS) - Queries should be added to ReadRepository and DbCommands on ReadWriteRepository.
-- You can unit test your application even if it depends on ReadConnection, ReadWriteDbConnection, ReadRepository, ReadWriteRepository, etc. They all can be "faked" using inheritance or a mocking library.
+- This is a "Bare metal" library - it does not try to "hide" or abstract ADO.NET or Dapper, so you can use the full power of Dapper, IDbTransactions, etc.
+- There are classes for read-only connections (`ReadOnlyDbConnection`, `ReadOnlyDbConnection<DB>`) and for read-write connections (`ReadWriteDbConnection`, `ReadWriteDbConnection<DB>`).
+- By isolating read-only connections and read-write connections we can use read-replicas for scaling-out reads on large scale apps.
+- All connection classes are wrappers around IDbConnection but which also implement IDbConnection so they can be used as regular connections.
+- If your app uses multiple databases (e.g. distributed databases, microservices, heterogeneous databases) it's easy to manage those multiple connections using generic classes `ReadOnlyDbConnection<DB>` and `ReadWriteDbConnection<DB>`.
+- Read connections can build `ReadRepository<TEntity>` and read-write connections can build `ReadWriteRepository<TEntity>` - those are Generic Repositories (Generic Repository Pattern).
+- `ReadRepository<TEntity>` has methods to invoke Dapper Query extensions (Query, QuerySingle, QueryAsync, etc).
+- `ReadRepository<TEntity>` has methods to invoke DapperQueryBuilder methods, so you can easily add dynamic filters to your queries.
+- `ReadWriteRepository<TEntity>` has **Insert** / **Update** / **Delete** methods which use Dapper FastCRUD to automatically generate the CRUD as long as your entities are decorated with attributes like **[Key]** and **[DatabaseGenerated(DatabaseGeneratedOption.Identity)]** .
+- By isolating read-only repositories and read-write repositories we can **isolate Queries and Commands (CQRS)** - Queries should be added to `ReadRepository` and DbCommands to `ReadWriteRepository`.
+- Repositories and Connections can be extended either through method extensions or through inheritance.
+- It's possible to register a custom repository type (e.g. `PersonRepository` child of `ReadWriteRepository<Person>`) to be used instead of the generic repository.
+- Your Application Logic/Services can be tested by registering fake repository implementations or by using a mocking library.
+- Everything is testable: connection wrappers and their underlying connections are also mockable.
 
 ## Installation
 Just install nuget package **[Harbin.Infrastructure.Database](https://www.nuget.org/packages/Harbin.Infrastructure.Database/)**, 
@@ -155,8 +158,11 @@ public void Sample()
   repo.UpdateCustomers();
   var recentEmployees = repo.QueryRecentEmployees();
 }
-
 ```
+
+In the example above the `ReadWriteRepository<Person>` is replaced by a derived type `PersonRepository`, and the cast expects that type.  
+It would be possible to use interfaces (e.g. `IPersonRepository`, child of `IReadWriteRepository<Person>`) but in order to make simple examples (avoid repetitive code) we're not using interfaces here.
+
 
 **Running multiple commands under a single ADO.NET transaction**
 ```cs
@@ -195,10 +201,14 @@ public void SampleTransaction()
 
 **Mocking your repositories using a fake class**
 
+
+In a previous example the `ReadWriteRepository<Person>` was replaced by a derived type `PersonRepository`, and the cast expects that type (without using interfaces to make the example simple and avoid repetitive code).  
+Since we're not using interfaces (we're casting/expecting `PersonRepository`), the easiest way of creating a fake repository is using inheritance (`FakePersonRepository` derived from `PersonRepository`), and overriding only what you need.
+
 ```cs
 public class FakePersonRepository : PersonRepository
 {
-  public FakePersonRepository(IReadWriteDbConnection db) : base(db)
+  public FakePersonRepository() : base((IReadWriteDbConnection)null)
   {
   }
   public override IEnumerable<Person> QueryRecentEmployees()
@@ -208,7 +218,7 @@ public class FakePersonRepository : PersonRepository
   }
   public override void UpdateCustomers()
   {
-    // do nothing
+    // do nothing (avoids crashing on the null underlying connection)
   }
 }
 public void SampleTest()
@@ -227,14 +237,15 @@ public void SampleTest()
 }
 ```
 
-**Mocking your repositories using a Mocking library (Moq)**
+
+**Mocking your repositories using stubs created by a Mocking library (Moq)**
 ```cs
 public void SampleTest()
 {
   
   // Mock PersonRepository with a fake implementation of QueryRecentEmployees()
   Person p1 = new Person() { FirstName = "Rick", LastName = "Drizin" };
-  var mockRepo = new Mock<PersonRepository>();
+  var mockRepo = new Mock<PersonRepository>(); // or IPersonRepository if using interfaces
   mockRepo.Setup(repo => repo.QueryRecentEmployees()).Returns(new List<Person>() { p1 });
   //mockRepo.Setup(repo => repo.UpdateCustomers()); // no need to mock anything since it's a void.. will just be ignored
 
