@@ -17,6 +17,85 @@ Harbin Database Library was designed based on the following ideas:
 - By keeping Queries on ReadOnlyRepository and DbCommands on ReadWriteRepository you're isolating your Queries and Commands (CQRS).
 - You can unit test your application even if it depends on ReadOnlyConnection, ReadWriteConnection, ReadOnlyRepository, ReadWriteRepository, etc. They all can be "faked" using inheritance or a mocking library.
 
+## Installation
+Just install nuget package **[Harbin.Infrastructure.Database](https://www.nuget.org/packages/Harbin.Infrastructure.Database/)**, 
+add `using Harbin.Infrastructure.Database.Connection`, `using using Harbin.Infrastructure.Database.Repositories`, and start using (see examples below).  
+See documentation below, or more examples in [unit tests](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Tests).
+
+## Documentation
+
+**Define your classes with attributes to describe Keys and Identity columns**
+
+```cs
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+[Table("ContactType", Schema = "Person")]
+public partial class ContactType
+{
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ContactTypeId { get; set; }
+
+    public DateTime ModifiedDate { get; set; }
+
+    public string Name { get; set; }
+
+}
+```
+
+**Basic usage: Creating a connection, Querying, Inserting and Updating**
+
+```cs
+// This is basically a wrapper around your own IDbConnection 
+// (which can be any database supported by Dapper FastCRUD: LocalDb, Ms Sql Server, MySql, SqLite, PostgreSql)
+// You can use ReadDbConnection or ReadWriteDbConnection which is a derived class
+var conn = new ReadWriteDbConnection(new System.Data.SqlClient.SqlConnection(connectionString));
+
+// ReadDbConnection (and derived ReadWriteDbConnection) has Dapper facades for all Dapper Query methods 
+// (including Async methods), no need to add "using Dapper".
+var contactTypes = conn.Query<ContactType>("SELECT * FROM Person.ContactType");
+
+// Since we have a ReadWriteDbConnection we can get a Generic ReadWriteRepository for 
+// our Entities (IReadWriteRepository<TEntity>), which offers Update/Insert/Delete methods:
+
+// Updating a record using Generic Repository Pattern (using FastCRUD):
+var contactType = contactTypes.First();
+contactType.ModifiedDate = DateTime.Now;
+conn.GetReadWriteRepository<ContactType>().Update(contactType);
+
+// Adding a new record using Generic Repository Pattern (using FastCRUD):
+var newContactType = new ContactType() { Name = "NewType", ModifiedDate = DateTime.Now };
+conn.GetReadWriteRepository<ContactType>().Insert(newContactType);
+
+// Deleting using Generic Repository Pattern (using FastCRUD):
+conn.GetReadWriteRepository<ContactType>().Delete(newContactType);
+
+// Both with ReadWriteDbConnection or ReadDbConnection we can get a IReadRepository<TEntity> 
+// which has some helpers to Query our table:
+var all = conn.GetReadRepository<ContactType>().QueryAll();
+all = conn.GetReadRepository<ContactType>().Query("SELECT * FROM Person.ContactType WHERE ContactTypeId < 5");
+all = conn.GetReadRepository<ContactType>().Query("WHERE ContactTypeId < 5"); // just syntactic sugar to automatically fill the table/schema according to class attributes
+all = conn.GetReadRepository<ContactType>().Query("ContactTypeId < 5"); // more syntactic sugar
+
+// DapperQueryBuilder allows to dynamically append new conditions and is also safe against sql-injection 
+// (parameters can be described using string interpolation and it's converted into Dapper DynamicParams)
+var dynamicQuery = conn.GetReadRepository<ContactType>().QueryBuilder();
+dynamicQuery.Where($"ContactTypeId < 5");
+dynamicQuery.Where($"ModifiedDate < GETDATE()");
+string search = "%Sales%";
+dynamicQuery.Where($"Name LIKE {search}");
+all = dynamicQuery.Query();
+```
+
+**Adding reusable Queries and Commands using Extension Methods**
+...
+
+**Adding reusable Queries and Commands using inheritance**
+...
+
+
 
 ## License
 MIT License

@@ -10,7 +10,7 @@ Project | Description
 [**AdventureWorks.Core.Domain**](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Domain) | AdventureWorks (sample database) - Domain Layer (only Entities) 
 [**AdventureWorks.Core.CoreDatabase**](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.CoreDatabase) | AdventureWorks - Data Layer (aka Persistence Layer) - where we define connections, custom Queries and DbCommands. Also includes [CodegenCS](https://github.com/Drizin/CodegenCS/) scripts to extract the database schema and generate Entities in Domain Layer.
 [AdventureWorks.Core.Application](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Application) | Application Layer (Services)
-[AdventureWorks.Core.Tests](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Tests) | Unit Tests which tests the Application Layer (Services) but mocking Database Connection or Repositories
+[AdventureWorks.Core.Tests](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Tests) | Unit Tests which test the Application Layer (Services) but mocking Database Connection or Repositories
 
 
 #  Design Principles
@@ -18,7 +18,7 @@ Project | Description
 Harbin architecture is mostly based on traditional 3-tiered architecture (mostly for being pragmatic and keeping things simple for data-driven applications), but borrows some ideas from Domain-Driven Design (and Onion Architecture).
 
 It was designed based on the following ideas (from lowest layer to top):
-- Like DDD/Onion, Domain Model (mostly Entities, since this is still a data-driven architecture) is the lowest layer (don't depend on any other layer) and can contain business logic, but no data access.
+- Like DDD/Onion, Domain Model (mostly Entities, since this is still a data-driven architecture) is the lowest layer (doesn't depend on any other layer) and can contain business logic, but no data access.
 - Like DDD/Onion, business logic which doesn't fit in the Domain Model should be in upper layers. But we avoid distinction between "Domain Services" and "Application Services" because it's kind of gray area.
 - The Data Layer contains Repositories and CRUD, and it's a lower layer which depend only on Domain Entities. So it doesn't implement any interface defined in upper layers or elsewhere.
 - Since the Data Layer doesn't use interfaces we avoid code repetition and upper layers can use Data Layer without Dependency Injection or Dependency Inversion. Like traditional 3-tier architecture.
