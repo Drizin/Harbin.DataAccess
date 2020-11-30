@@ -108,6 +108,16 @@ namespace Harbin.Infrastructure.Database.Repositories
         /// </summary>
         Task<IEnumerable<TEntity>> QueryAsync(Action<IRangedBatchSelectSqlSqlStatementOptionsOptionsBuilder<TEntity>> statementOptions);
 
+        /// <summary>
+        /// Count records by passing a query statement using Dapper FastCRUD syntax.
+        /// </summary>
+        int Count(Action<IConditionalSqlStatementOptionsBuilder<TEntity>> statementOptions = null);
+
+        /// <summary>
+        /// Count records by passing a query statement using Dapper FastCRUD syntax.
+        /// </summary>
+        Task<int> CountAsync(Action<IConditionalSqlStatementOptionsBuilder<TEntity>> statementOptions = null);
+
         #endregion
 
 

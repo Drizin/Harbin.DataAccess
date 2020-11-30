@@ -11,7 +11,7 @@ namespace Harbin.Infrastructure.Database.Connection
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
     /// and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
     /// </summary>
-    public abstract class ReadDbConnection : IReadDbConnection, IDbConnection
+    public class ReadDbConnection : IReadDbConnection, IDbConnection
     {
         public readonly IDbConnection _dbConnection;
         public IDbConnection DbConnection { get { return _dbConnection; } }
@@ -274,8 +274,7 @@ namespace Harbin.Infrastructure.Database.Connection
 
         public virtual IDbCommand CreateCommand()
         {
-            //return _dbConnection.CreateCommand();
-            throw new NotImplementedException();
+            return _dbConnection.CreateCommand(); 
         }
 
         public void Open()

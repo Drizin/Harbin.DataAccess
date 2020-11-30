@@ -50,16 +50,6 @@ namespace Harbin.Infrastructure.Database.Repositories
         /// Bulk delete (multiple records) by passing a query statement using Dapper FastCRUD syntax.
         /// </summary>
         Task<int> BulkDeleteAsync(Action<IConditionalBulkSqlStatementOptionsBuilder<TEntity>> statementOptions = null);
-
-        /// <summary>
-        /// Count records by passing a query statement using Dapper FastCRUD syntax.
-        /// </summary>
-        int Count(Action<IConditionalSqlStatementOptionsBuilder<TEntity>> statementOptions = null);
-
-        /// <summary>
-        /// Count records by passing a query statement using Dapper FastCRUD syntax.
-        /// </summary>
-        Task<int> CountAsync(Action<IConditionalSqlStatementOptionsBuilder<TEntity>> statementOptions = null);
         #endregion
 
         #region Execute Methods

@@ -70,14 +70,6 @@ namespace Harbin.Infrastructure.Database.Repositories
         {
             return Dapper.FastCrud.DapperExtensions.BulkDeleteAsync(_db, statementOptions);
         }
-        public virtual int Count(Action<IConditionalSqlStatementOptionsBuilder<TEntity>> statementOptions = null)
-        {
-            return Dapper.FastCrud.DapperExtensions.Count(_db, statementOptions);
-        }
-        public virtual Task<int> CountAsync(Action<IConditionalSqlStatementOptionsBuilder<TEntity>> statementOptions = null)
-        {
-            return Dapper.FastCrud.DapperExtensions.CountAsync(_db, statementOptions);
-        }
         #endregion
 
         #region Execute Methods
