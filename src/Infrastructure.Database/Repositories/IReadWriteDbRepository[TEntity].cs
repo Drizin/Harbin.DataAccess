@@ -25,8 +25,20 @@ namespace Harbin.Infrastructure.Database.Repositories
     public interface IReadWriteDbRepository<TEntity> : IReadDbRepository<TEntity>
     {
         #region Insert/Update/Delete (which are automatically implemented by FastCRUD - but you can override and write on your own!)
+
+        /// <summary>
+        /// Inserts a new record. Default implementation (unless overriden) uses Dapper FastCRUD
+        /// </summary>
         TEntity Insert(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
+
+        /// <summary>
+        /// Updates a record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+        /// </summary>
         bool Update(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
+
+        /// <summary>
+        /// Deletes record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+        /// </summary>
         bool Delete(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
         #endregion
 
@@ -53,10 +65,17 @@ namespace Harbin.Infrastructure.Database.Repositories
         #endregion
 
         #region Execute Methods
-        // By exposing Execute Methods directly the developer could change ANY table, which probably should be used directly with IReadWriteDbConnection
-        // (and not IReadWriteDbRepository<TEntity>)
-        //int Execute(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
-        //Task<int> ExecuteAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+        /// <summary>
+        /// Executes the command (using Dapper), returning the number of rows affected.
+        /// Warning: this uses the underlying read-write connection and can use ANY table, so it's up to the developer to write the commands in the correct repository.
+        /// </summary>
+        int Execute(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
+        /// <summary>
+        /// Executes the command (using Dapper), returning the number of rows affected.
+        /// Warning: this uses the underlying read-write connection and can use ANY table, so it's up to the developer to write the commands in the correct repository.
+        /// </summary>
+        Task<int> ExecuteAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
         #endregion
 
     }

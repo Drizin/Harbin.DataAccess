@@ -19,6 +19,8 @@ namespace Harbin.Infrastructure.Database.Repositories
         }
 
         #region Insert/Update/Delete using FastCRUD (you can override and write on your own!)
+        
+        /// <inheritdoc/>
         public virtual TEntity Insert(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
         {
             Dapper.FastCrud.DapperExtensions.Insert(_db, entity, o =>
@@ -30,6 +32,8 @@ namespace Harbin.Infrastructure.Database.Repositories
             });
             return entity;
         }
+
+        /// <inheritdoc/>
         public virtual bool Update(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
         {
             return Dapper.FastCrud.DapperExtensions.Update(_db, entity, o =>
@@ -41,6 +45,7 @@ namespace Harbin.Infrastructure.Database.Repositories
             });
         }
 
+        /// <inheritdoc/>
         public virtual bool Delete(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
         {
             return Dapper.FastCrud.DapperExtensions.Delete(_db, entity, o =>
@@ -54,18 +59,26 @@ namespace Harbin.Infrastructure.Database.Repositories
         #endregion
 
         #region Dapper.FastCRUD specific methods
+
+        /// <inheritdoc/>
         public virtual int BulkUpdate(TEntity updateData, Action<IConditionalBulkSqlStatementOptionsBuilder<TEntity>> statementOptions = null)
         {
             return Dapper.FastCrud.DapperExtensions.BulkUpdate(_db, updateData, statementOptions);
         }
+
+        /// <inheritdoc/>
         public virtual Task<int> BulkUpdateAsync(TEntity updateData, Action<IConditionalBulkSqlStatementOptionsBuilder<TEntity>> statementOptions = null)
         {
             return Dapper.FastCrud.DapperExtensions.BulkUpdateAsync(_db, updateData, statementOptions);
         }
+
+        /// <inheritdoc/>
         public virtual int BulkDelete(Action<IConditionalBulkSqlStatementOptionsBuilder<TEntity>> statementOptions = null)
         {
             return Dapper.FastCrud.DapperExtensions.BulkDelete(_db, statementOptions);
         }
+
+        /// <inheritdoc/>
         public virtual Task<int> BulkDeleteAsync(Action<IConditionalBulkSqlStatementOptionsBuilder<TEntity>> statementOptions = null)
         {
             return Dapper.FastCrud.DapperExtensions.BulkDeleteAsync(_db, statementOptions);
@@ -73,18 +86,17 @@ namespace Harbin.Infrastructure.Database.Repositories
         #endregion
 
         #region Execute Methods
-        // By exposing Execute Methods directly the developer could change ANY table, which probably should be used directly with IReadWriteDbConnection
-        // (and not IReadWriteDbRepository<TEntity>)
-        /*
+        /// <inheritdoc/>
         public virtual int Execute(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.Execute(sql: sql, param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
+
+        /// <inheritdoc/>
         public Task<int> ExecuteAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.ExecuteAsync(sql: sql, param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
-        */
         #endregion
 
 

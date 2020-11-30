@@ -26,9 +26,7 @@ namespace Harbin.Infrastructure.Database.Repositories
         }
         #endregion
 
-        /// <summary>
-        /// Returns all records. SELECT * FROM tableName.
-        /// </summary>
+        /// <inheritdoc/>
         public virtual IEnumerable<TEntity> QueryAll()
         {
             return _db.Query<TEntity>($"SELECT * FROM {_tableName:raw}");
@@ -49,51 +47,32 @@ namespace Harbin.Infrastructure.Database.Repositories
 
         #region IReadDbConnection (Dapper Query) Facades
         #region IReadDbConnection.Query<TEntity> -> Dapper.Query<TEntity>
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+
+        /// <inheritdoc/>
         public IEnumerable<TEntity> Query(string sql, object param = null, IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.Query<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, buffered: buffered, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public TEntity QueryFirst(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QueryFirst<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public TEntity QueryFirstOrDefault(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QueryFirstOrDefault<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public TEntity QuerySingle(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QuerySingle<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public TEntity QuerySingleOrDefault(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QuerySingleOrDefault<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
@@ -101,50 +80,32 @@ namespace Harbin.Infrastructure.Database.Repositories
         #endregion
 
         #region IReadDbConnection.QueryAsync<TEntity> -> Dapper.QueryAsync<TEntity>
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+
+        /// <inheritdoc/>
         public Task<IEnumerable<TEntity>> QueryAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QueryAsync<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public Task<TEntity> QueryFirstAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QueryFirstAsync<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+
+        /// <inheritdoc/>
         public Task<TEntity> QueryFirstOrDefaultAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QueryFirstOrDefaultAsync<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public Task<TEntity> QuerySingleAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QuerySingleAsync<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
         }
 
-        /// <summary>
-        /// Executes the query (using Dapper), returning the data typed as TEntity.
-        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
-        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
-        /// </summary>
+        /// <inheritdoc/>
         public Task<TEntity> QuerySingleOrDefaultAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _db.QuerySingleOrDefaultAsync<TEntity>(sql: AdjustSql(sql), param: param, transaction: transaction, commandTimeout: commandTimeout, commandType: commandType);
@@ -153,19 +114,13 @@ namespace Harbin.Infrastructure.Database.Repositories
         #endregion
 
         #region DapperQueryBuilder
-        /// <summary>
-        /// Builds a DapperQueryBuilder, initialized with "SELECT * FROM tableName", 
-        /// where you can append your conditions using interpolated strings which are converted into SqlParameters.
-        /// </summary>
+        /// <inheritdoc/>
         public virtual DapperQueryBuilder<TEntity> QueryBuilder()
         {
             return new DapperQueryBuilder<TEntity>(_db, $"SELECT * FROM {_tableName:raw} /**where**/");
         }
 
-        /// <summary>
-        /// Builds a DapperQueryBuilder, initialized with an initial query, 
-        /// where you can append your conditions using interpolated strings which are converted into SqlParameters.
-        /// </summary>
+        /// <inheritdoc/>
         public virtual DapperQueryBuilder<TEntity> QueryBuilder(FormattableString query)
         {
             return new DapperQueryBuilder<TEntity>(_db, query);

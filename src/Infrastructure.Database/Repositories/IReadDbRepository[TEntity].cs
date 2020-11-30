@@ -28,9 +28,21 @@ namespace Harbin.Infrastructure.Database.Repositories
     /// </summary>
     public interface IReadDbRepository<TEntity>
     {
+        /// <summary>
+        /// Returns all records. SELECT * FROM tableName.
+        /// </summary>
         IEnumerable<TEntity> QueryAll();
 
+        /// <summary>
+        /// Builds a DapperQueryBuilder, initialized with "SELECT * FROM tableName", 
+        /// where you can append your conditions using interpolated strings which are converted into SqlParameters.
+        /// </summary>
         DapperQueryBuilder<TEntity> QueryBuilder();
+
+        /// <summary>
+        /// Builds a DapperQueryBuilder, initialized with an initial query, 
+        /// where you can append your conditions using interpolated strings which are converted into SqlParameters.
+        /// </summary>
         DapperQueryBuilder<TEntity> QueryBuilder(FormattableString query);
 
         #region IReadDbConnection.Query<TEntity> -> Dapper.Query<TEntity>
@@ -61,27 +73,42 @@ namespace Harbin.Infrastructure.Database.Repositories
         #endregion
 
         #region IReadDbConnection.QueryAsync<TEntity> -> Dapper.QueryAsync<TEntity>
+
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
+        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
         /// </summary>
         Task<IEnumerable<TEntity>> QueryAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
 
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
+        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
         /// </summary>
         Task<TEntity> QueryFirstAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
+        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
         /// </summary>
         Task<TEntity> QueryFirstOrDefaultAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
+        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
         /// </summary>
         Task<TEntity> QuerySingleAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
         /// <summary>
         /// Executes the query (using Dapper), returning the data typed as T.
+        /// Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+        /// (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
         /// </summary>
         Task<TEntity> QuerySingleOrDefaultAsync(string sql, object param = null, IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null);
+
         #endregion
 
         #region Dapper.FastCRUD specific methods
