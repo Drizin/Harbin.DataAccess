@@ -17,7 +17,8 @@ Harbin Database Library was designed based on the following ideas:
 - `ReadRepository<TEntity>` has methods to invoke DapperQueryBuilder methods, so you can easily add dynamic filters to your queries.
 - `ReadWriteRepository<TEntity>` has **Insert** / **Update** / **Delete** methods which use Dapper FastCRUD to automatically generate the CRUD as long as your entities are decorated with attributes like **[Key]** and **[DatabaseGenerated(DatabaseGeneratedOption.Identity)]** .
 - By isolating read-only repositories and read-write repositories we can **isolate Queries and Commands (CQRS)** - Queries should be added to `ReadRepository` and DbCommands to `ReadWriteRepository`.
-- Repositories and Connections can be extended either through method extensions or through inheritance.
+- Repositories are "persistence-based repositories" (as described by Vaughn Vernon in "Implementing Domain-Driven Design" book), and do NOT emulate a collection of objects (as described by Eric Evans in "Domain-Driven Design" book).
+- Repositories and Connections can be extended either through inheritance (recommended) or through method extensions.
 - It's possible to register a custom repository type (e.g. `PersonRepository` child of `ReadWriteRepository<Person>`) to be used instead of the generic repository.
 - Your Application Logic/Services can be tested by registering fake repository implementations or by using a mocking library.
 - Everything is testable: connection wrappers and their underlying connections are also mockable.
@@ -98,38 +99,7 @@ dynamicQuery.Where($"Name LIKE {search}");
 all = dynamicQuery.Query();
 ```
 
-**Adding reusable Queries and Commands using Extension Methods**
-```cs
-public static class PersonQueryExtensions
-{
-  public static IEnumerable<Person> QueryRecentEmployees(this IReadDbRepository<Person> repo)
-  {
-    return repo.Query("SELECT TOP 10 * FROM [Person].[Person] WHERE [PersonType]='EM' ORDER BY [ModifiedDate] DESC");
-  }
-}
-
-public static class PersonDbCommandExtensions
-{
-  public static void UpdateCustomers(this IReadWriteDbRepository<Person> repo)
-  {
-    repo.Execute("UPDATE [Person].[Person] SET [FirstName]='Rick' WHERE [PersonType]='EM' ");
-  }
-}
-public void Sample()
-{
-  var repo = conn.GetReadWriteRepository<Person>();
-  
-  // Generic Repository methods
-  repo.Insert(new Person() { FirstName = "Rick", LastName = "Drizin" });
-  var allPeople = repo1.QueryAll();
-  
-  // Custom Extensions
-  repo.UpdateCustomers();
-  var recentEmployees = repo.QueryRecentEmployees();
-}
-```
-
-**Adding reusable Queries and Commands using inheritance**
+**Extending Repositories (adding custom Queries and Commands) using Inheritance (recommended approach)**
 ```cs
 public class PersonRepository : ReadWriteDbRepository<Person>
 {
@@ -164,6 +134,43 @@ In the example above the `ReadWriteRepository<Person>` is replaced by a derived 
 It would be possible to use interfaces (e.g. `IPersonRepository`, child of `IReadWriteRepository<Person>`) but in order to make simple examples (avoid repetitive code) we're not using interfaces here.
 
 
+**Extending Repositories (adding custom Queries and Commands) using Extension Methods (alternative approach)**
+
+```cs
+public static class PersonQueryExtensions
+{
+  public static IEnumerable<Person> QueryRecentEmployees(this IReadDbRepository<Person> repo)
+  {
+    return repo.Query("SELECT TOP 10 * FROM [Person].[Person] WHERE [PersonType]='EM' ORDER BY [ModifiedDate] DESC");
+  }
+}
+
+public static class PersonDbCommandExtensions
+{
+  public static void UpdateCustomers(this IReadWriteDbRepository<Person> repo)
+  {
+    repo.Execute("UPDATE [Person].[Person] SET [FirstName]='Rick' WHERE [PersonType]='EM' ");
+  }
+}
+public void Sample()
+{
+  var repo = conn.GetReadWriteRepository<Person>();
+  
+  // Generic Repository methods
+  repo.Insert(new Person() { FirstName = "Rick", LastName = "Drizin" });
+  var allPeople = repo1.QueryAll();
+  
+  // Custom Extensions
+  repo.UpdateCustomers();
+  var recentEmployees = repo.QueryRecentEmployees();
+}
+```
+
+PS: This alternative method (using Extension methods) is easier than using Inheritance (because it doesn't require Registering Types and casting), but it's not recommended because it has limited testing support:
+- Even if you create a fake implementation of the repository you can't override static extension methods with fake methods
+- However, you can still use IDbConnection stubs (see Moq.Dapper below) to return fake results to your Dapper calls.
+
+
 **Running multiple commands under a single ADO.NET transaction**
 ```cs
 public static class PersonDbCommandExtensions
@@ -190,20 +197,11 @@ public void SampleTransaction()
 }
 ```
 
-**Managing different connections for Read-Write datastore and for Read Replicas**
-
-... ReadDbConnection vs ReadWriteDbConnection vs ReadOnlyDbConnection; ReadRepository vs ReadWriteRepository;
-
-**Managing different databases (distributed databases)**
-
-... ReadDbConnection<DB>, ReadWriteDbConnection<DB>
-
 
 **Mocking your repositories using a fake class**
 
-
 In a previous example the `ReadWriteRepository<Person>` was replaced by a derived type `PersonRepository`, and the cast expects that type (without using interfaces to make the example simple and avoid repetitive code).  
-Since we're not using interfaces (we're casting/expecting `PersonRepository`), the easiest way of creating a fake repository is using inheritance (`FakePersonRepository` derived from `PersonRepository`), and overriding only what you need.
+Since we're not using interfaces (we're casting/expecting `PersonRepository`), the easiest way of creating a fake repository is using inheritance (`FakePersonRepository` derived from `PersonRepository`), and overriding only what you need.  
 
 ```cs
 public class FakePersonRepository : PersonRepository
@@ -237,6 +235,7 @@ public void SampleTest()
 }
 ```
 
+PS: You can't override static extension methods 
 
 **Mocking your repositories using stubs created by a Mocking library (Moq)**
 ```cs
@@ -261,6 +260,37 @@ public void SampleTest()
   Assert.That(recentEmployees.Count() == 1);
 }
 ```
+
+PS: Moq library can't create stubs for static extension methods 
+
+**Mocking IDbConnection and Dapper calls with Moq and [Moq.Dapper](https://github.com/UnoSD/Moq.Dapper)**
+
+```cs
+var connection = new Mock<IDbConnection>();
+Person p1 = new Person() { FirstName = "Rick", LastName = "Drizin" };
+connection.SetupDapper(c => c.Query<Person>(It.IsAny<string>(), null, null, true, null, null)).Returns(new List<Person>() { p1 });
+
+var conn = new ReadWriteDbConnection(connection.Object);
+var repo1 = conn.GetReadWriteRepository<Person>();
+repo1.QueryAll();
+UpdateCustomers
+repo1.UpdateCustomers(); // Mock by default will just return void for methods which aren't explicily mocked
+var recentEmployees = repo1.QueryRecentEmployees();
+```
+
+Even if `QueryRecentEmployees()` is an extension method it will still be mocked by the underlying stubs which replace IDbConnection and which return fake results for Dapper calls.
+
+
+**Managing different connections for Read-Write datastore and for Read Replicas**
+
+You can register `ReadWriteDbConnection` (in your IoC container) with a fixed connection string pointing to the master database (read-write store).  
+You can register `ReadOnlyDbConnection` (in your IoC container) with `DbConnectionFactory` which randomized against some different read-replica stores.
+
+**Managing different databases (distributed databases)**
+
+You can register and use different connections to multiple databases by using the `ReadDbConnection<DB>` and `ReadWriteDbConnection<DB>` generic classes.  
+Example: `ReadWriteDbConnection<CustomersDB>`, `ReadWriteDbConnection<OrdersDB>`, etc.
+
 
 ## License
 MIT License

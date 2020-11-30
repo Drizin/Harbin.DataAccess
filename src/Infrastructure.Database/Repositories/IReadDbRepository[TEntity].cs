@@ -15,7 +15,7 @@ namespace Harbin.Infrastructure.Database.Repositories
     /// 
     /// This Repository is a Persistence-Based repository,
     /// as described by Vaughn Vernon in "Implementing Domain-Driven Design" book, 
-    /// where he makes a distinction between  collection-based repositories and persistence-based repositories.
+    /// where he makes a distinction between collection-based repositories and persistence-based repositories.
     /// 
     /// This does NOT emulate a collection of objects, as it was described by Eric Evans in "Domain-Driven Design" book.
     /// 
