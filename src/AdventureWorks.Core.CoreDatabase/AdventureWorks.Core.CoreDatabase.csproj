@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CodeGenerator\LogicalSchema.cs" />
+    <Compile Remove="CodeGenerator\SimplePOCOGenerator.cs" />
+    <Compile Remove="_LogicalSchema.cs" />
+    <Compile Remove="_SimplePOCOGenerator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="CodeGenerator\LogicalSchema.cs" />
+    <None Include="CodeGenerator\LogicalSchema.cs" />
+    <None Include="CodeGenerator\SimplePOCOGenerator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureWorks.Core.Domain\AdventureWorks.Core.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure.Database\Infrastructure.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CodeGenerator\FastCRUD-GenericModelGenerator.tt">
+      <Generator></Generator>
+    </None>
+    <None Update="CodeGenerator\FastCRUD-SampleModelGeneratorConfig.tt">
+      <Generator></Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>
