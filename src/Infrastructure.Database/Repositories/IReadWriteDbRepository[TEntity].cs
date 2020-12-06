@@ -32,14 +32,29 @@ namespace Harbin.Infrastructure.Database.Repositories
         TEntity Insert(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
 
         /// <summary>
+        /// Inserts a new record. Default implementation (unless overriden) uses Dapper FastCRUD
+        /// </summary>
+        Task<TEntity> InsertAsync(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
+
+        /// <summary>
         /// Updates a record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
         /// </summary>
         bool Update(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
 
         /// <summary>
+        /// Updates a record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+        /// </summary>
+        Task<bool> UpdateAsync(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
+
+        /// <summary>
         /// Deletes record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
         /// </summary>
         bool Delete(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
+
+        /// <summary>
+        /// Deletes record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+        /// </summary>
+        Task<bool> DeleteAsync(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null);
         #endregion
 
         #region Dapper.FastCRUD specific methods

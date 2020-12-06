@@ -33,6 +33,20 @@ namespace Harbin.Infrastructure.Database.Repositories
             return entity;
         }
 
+
+        /// <inheritdoc/>
+        public virtual async Task<TEntity> InsertAsync(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
+        {
+            await Dapper.FastCrud.DapperExtensions.InsertAsync(_db, entity, o =>
+            {
+                if (transaction != null)
+                    o.AttachToTransaction(transaction);
+                if (commandTimeout != null)
+                    o.WithTimeout(TimeSpan.FromSeconds(commandTimeout.Value));
+            });
+            return entity;
+        }
+
         /// <inheritdoc/>
         public virtual bool Update(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
         {
@@ -46,9 +60,33 @@ namespace Harbin.Infrastructure.Database.Repositories
         }
 
         /// <inheritdoc/>
+        public virtual Task<bool> UpdateAsync(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
+        {
+            return Dapper.FastCrud.DapperExtensions.UpdateAsync(_db, entity, o =>
+            {
+                if (transaction != null)
+                    o.AttachToTransaction(transaction);
+                if (commandTimeout != null)
+                    o.WithTimeout(TimeSpan.FromSeconds(commandTimeout.Value));
+            });
+        }
+
+        /// <inheritdoc/>
         public virtual bool Delete(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
         {
             return Dapper.FastCrud.DapperExtensions.Delete(_db, entity, o =>
+            {
+                if (transaction != null)
+                    o.AttachToTransaction(transaction);
+                if (commandTimeout != null)
+                    o.WithTimeout(TimeSpan.FromSeconds(commandTimeout.Value));
+            });
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<bool> DeleteAsync(TEntity entity, IDbTransaction transaction = null, int? commandTimeout = null)
+        {
+            return Dapper.FastCrud.DapperExtensions.DeleteAsync(_db, entity, o =>
             {
                 if (transaction != null)
                     o.AttachToTransaction(transaction);
