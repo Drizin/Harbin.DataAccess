@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CodegenCS</id>
+    <version>1.0.1</version>
+    <title>Harbin.DataAccess</title>
+    <authors>Rick Drizin</authors>
+    <owners>Rick Drizin</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Data Access library based on Dapper, Dapper.FastCRUD, and DapperQueryBuilder. 
+Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.</description>
+    <copyright>Copyright Rick Drizin 2020</copyright>
+    <tags>data access library;dapper;dapperquerybuilder;fastcrud;repository-pattern</tags>
+    <repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess" commit="74d26e562c109cdffad76c69e5d463f76cc40807" />
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\net472\Harbin.DataAccess.*" target="lib\net472" />
+    <file src="bin\Release\netstandard2.1\Harbin.DataAccess.*" target="lib\netstandard2.1" />
+  </files>
+</package>
