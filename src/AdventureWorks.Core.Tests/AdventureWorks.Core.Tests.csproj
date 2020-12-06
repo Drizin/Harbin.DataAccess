@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AdventureWorks.Core.Application\AdventureWorks.Core.Application.csproj" />
-    <ProjectReference Include="..\Infrastructure.Database\Infrastructure.Database.csproj" />
+    <ProjectReference Include="..\Harbin.DataAccess\Harbin.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Harbin.Infrastructure.Database.Connection;
+using Harbin.DataAccess.Connection;
 using AdventureWorks.Core.Domain.Entities;
 
 namespace AdventureWorks.Core.CoreDatabase

@@ -1,6 +1,6 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Harbin.Infrastructure.Database.Connection;
-using Harbin.Infrastructure.Database.Repositories;
+using Harbin.DataAccess.Connection;
+using Harbin.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;

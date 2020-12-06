@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AdventureWorks.Core.Domain\AdventureWorks.Core.Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure.Database\Infrastructure.Database.csproj" />
+    <ProjectReference Include="..\Harbin.DataAccess\Harbin.DataAccess.csproj" />
   </ItemGroup>
 
   <ItemGroup>

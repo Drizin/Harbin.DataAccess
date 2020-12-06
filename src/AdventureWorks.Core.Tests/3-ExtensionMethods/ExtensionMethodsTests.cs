@@ -1,7 +1,7 @@
 ﻿using AdventureWorks.Core.CoreDatabase;
 using AdventureWorks.Core.Domain.Entities;
 using Dapper;
-using Harbin.Infrastructure.Database.Connection;
+using Harbin.DataAccess.Connection;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using Moq.Dapper;

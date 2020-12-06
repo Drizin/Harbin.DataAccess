@@ -106,7 +106,7 @@ public class SimplePOCOGenerator
                 using System.Data;
                 using System.Linq;
                 using System.Runtime.CompilerServices;
-                using Harbin.Infrastructure.Database.Connection;
+                using Harbin.DataAccess.Connection;
                 using {Namespace};");
             _dbConnectionCrudExtensions
                 .WriteLine()
