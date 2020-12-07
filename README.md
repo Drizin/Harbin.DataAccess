@@ -38,5 +38,10 @@ It was designed based on the following ideas (from lowest layer to top):
 - Data Layer includes [CodegenCS (Code Generator)](https://github.com/Drizin/CodegenCS/) scripts to automatically extract the database schema and generate POCO classes. Easy to plug your own database.
 
 
+## About the name
+Harbin is the capital of Heilongjiang (China’s northernmost province) and one of the largest cities in China.  
+The city grew in the late 19th century with the influx of Russian engineers constructing the eastern leg of the Trans-Siberian Railroad.  
+This is just a minor tribute to my father who was born in Harbin (as part of a family of Russian immigrants). He passed away in 2019.
+
 ## License
 MIT License
