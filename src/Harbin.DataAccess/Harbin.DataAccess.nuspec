@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>CodegenCS</id>
-    <version>1.0.2</version>
+    <id>Harbin.DataAccess</id>
+    <version>1.0.3</version>
     <title>Harbin.DataAccess</title>
     <authors>Rick Drizin</authors>
     <owners>Rick Drizin</owners>
@@ -13,7 +13,7 @@
 Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.</description>
     <copyright>Copyright Rick Drizin 2020</copyright>
     <tags>data access library;dapper;dapperquerybuilder;fastcrud;repository-pattern</tags>
-    <repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess" commit="00bf3cadc73460297390efe072dcbe80ac44293c" />
+    <repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess" commit="c523adb4776633876e732cf1cdf6f3f9b46a001b" />
     <dependencies>
     </dependencies>
   </metadata>
