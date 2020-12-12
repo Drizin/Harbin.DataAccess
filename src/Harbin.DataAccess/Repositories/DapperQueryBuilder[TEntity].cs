@@ -4,7 +4,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using DapperQueryBuilder;
-using Harbin.DataAccess.Connection;
+using Harbin.DataAccess.Connections;
 
 namespace Harbin.DataAccess.Repositories
 {

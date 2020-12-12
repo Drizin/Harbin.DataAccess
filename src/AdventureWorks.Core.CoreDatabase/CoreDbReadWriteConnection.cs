@@ -1,4 +1,4 @@
-﻿using Harbin.DataAccess.Connection;
+﻿using Harbin.DataAccess.Connections;
 using Harbin.DataAccess.Repositories;
 using System;
 using System.Collections.Generic;

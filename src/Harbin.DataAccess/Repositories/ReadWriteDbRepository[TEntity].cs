@@ -1,5 +1,5 @@
 ﻿using Dapper.FastCrud.Configuration.StatementOptions.Builders;
-using Harbin.DataAccess.Connection;
+using Harbin.DataAccess.Connections;
 using System;
 using System.Collections.Generic;
 using System.Data;
