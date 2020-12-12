@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.Connection
+namespace Harbin.DataAccess.Connections
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
