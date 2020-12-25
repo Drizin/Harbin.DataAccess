@@ -23,9 +23,9 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Appends a statement to the current command.
-        //     Parameters embedded using string-interpolation will be automatically converted
-        //     into Dapper parameters.
+        ///     Appends a statement to the current command.
+        ///     Parameters embedded using string-interpolation will be automatically converted
+        ///     into Dapper parameters.
         /// </summary>
         public DapperQueryBuilder<TEntity> Append(FormattableString statement)
         {
@@ -34,9 +34,9 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Appends a statement to the current command, but before statement adds a linebreak.
-        //     Parameters embedded using string-interpolation will be automatically converted
-        //     into Dapper parameters.
+        ///     Appends a statement to the current command, but before statement adds a linebreak.
+        ///     Parameters embedded using string-interpolation will be automatically converted
+        ///     into Dapper parameters.
         /// </summary>
         public DapperQueryBuilder<TEntity> AppendLine(FormattableString statement)
         {
@@ -45,7 +45,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Adds a new condition to where clauses.
+        ///    Adds a new condition to where clauses.
         /// </summary>
         public virtual DapperQueryBuilder<TEntity> Where(Filter filter)
         {
@@ -54,7 +54,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Adds a new condition to where clauses.
+        ///    Adds a new condition to where clauses.
         /// </summary>
         public virtual DapperQueryBuilder<TEntity> Where(Filters filters)
         {
@@ -63,9 +63,9 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Adds a new condition to where clauses.
-        //     Parameters embedded using string-interpolation will be automatically converted
-        //     into Dapper parameters.
+        ///    Adds a new condition to where clauses.
+        ///    Parameters embedded using string-interpolation will be automatically converted
+        ///    into Dapper parameters.
         /// </summary>
         public virtual DapperQueryBuilder<TEntity> Where(FormattableString filter)
         {
@@ -74,7 +74,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual IEnumerable<TEntity> Query(IDbTransaction transaction = null, bool buffered = true, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -83,7 +83,7 @@ namespace Harbin.DataAccess.Repositories
 
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual Task<IEnumerable<TEntity>> QueryAsync(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -91,7 +91,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual TEntity QueryFirst(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -99,7 +99,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual Task<TEntity> QueryFirstAsync(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -107,7 +107,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual TEntity QueryFirstOrDefault(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -115,7 +115,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual Task<TEntity> QueryFirstOrDefaultAsync(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -123,7 +123,7 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual TEntity QuerySingle(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
@@ -131,12 +131,29 @@ namespace Harbin.DataAccess.Repositories
         }
 
         /// <summary>
-        //     Executes the query (using Dapper), returning the data typed as T.
+        ///    Executes the query (using Dapper), returning the data typed as T.
         /// </summary>
         public virtual Task<TEntity> QuerySingleAsync(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
         {
             return _builder.QuerySingleAsync<TEntity>(transaction, commandTimeout, commandType);
         }
+
+        /// <summary>
+        ///    Executes the query (using Dapper), returning the data typed as T.
+        /// </summary>
+        public virtual TEntity QuerySingleOrDefault(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return _builder.QuerySingleOrDefault<TEntity>(transaction, commandTimeout, commandType);
+        }
+
+        /// <summary>
+        ///    Executes the query (using Dapper), returning the data typed as T.
+        /// </summary>
+        public virtual Task<TEntity> QuerySingleOrDefaultAsync(IDbTransaction transaction = null, int? commandTimeout = null, CommandType? commandType = null)
+        {
+            return _builder.QuerySingleOrDefaultAsync<TEntity>(transaction, commandTimeout, commandType);
+        }
+
 
     }
 }
