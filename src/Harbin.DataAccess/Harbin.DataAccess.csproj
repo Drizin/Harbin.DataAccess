@@ -11,7 +11,7 @@
 Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <DocumentationFile>Harbin.DataAccess.xml</DocumentationFile>
   </PropertyGroup>
