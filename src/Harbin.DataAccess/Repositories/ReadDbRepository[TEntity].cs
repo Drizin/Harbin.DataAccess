@@ -39,7 +39,7 @@ namespace Harbin.DataAccess.Repositories
         /// </summary>
         protected string AdjustSql(string sql)
         {
-            if (!sql.ToUpper().Contains("SELECT"))
+            if (!sql.ToUpper().TrimStart().StartsWith("SELECT"))
                 sql = $"SELECT * FROM {_tableName} " + (sql.ToUpper().Contains("WHERE") ? "" : "WHERE ") + sql;
             return sql;
         }

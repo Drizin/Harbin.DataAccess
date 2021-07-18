@@ -76,8 +76,8 @@ var contactTypes = rconn.Query<ContactType>("SELECT * FROM Person.ContactType");
 
 // ReadWriteDbConnection is derived from ReadDbConnection (has all Query methods)
 // but also has the Execute/ExecuteAsync methods:
-wconn.Execute("UPDATE [Person] SET [FirstName]='Rick' WHERE [PersonID]=1 ");
-//order
+wconn.Execute("UPDATE [Person] SET [FirstName]='Rick' WHERE [PersonID]=1");
+// or
 wconn.Execute("UPDATE [Person] SET [FirstName]=@firstName WHERE [PersonID]=@id ", new { firstName = "Rick", id = 1 } );
 ```
 
@@ -328,7 +328,7 @@ Even if `QueryRecentEmployees()` is an extension method it will still be mocked 
 **Managing different connections for Read-Write datastore and for Read Replicas**
 
 You can register `ReadWriteDbConnection` (in your IoC container) with a fixed connection string pointing to the master database (read-write store).  
-You can register `ReadOnlyDbConnection` (in your IoC container) with `DbConnectionFactory` which randomized against some different read-replica stores.
+You can register `ReadOnlyDbConnection` (in your IoC container) with a `DbConnectionFactory` which can randomly pick a read-replica store.
 
 **Managing different databases (distributed databases)**
 
