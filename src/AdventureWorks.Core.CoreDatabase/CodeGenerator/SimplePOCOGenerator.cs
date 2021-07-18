@@ -16,6 +16,24 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
+public class Program
+{
+    static void Main(string[] args)
+    {
+        // JSON file (relative to the PS1 scripts which set the CurrentDirectory)
+        var generator = new SimplePOCOGenerator(inputJsonSchema: Path.Combine(Directory.GetCurrentDirectory(), @"..\CoreDbSchema.json"));
+
+        generator.Namespace = "AdventureWorks.Core.Domain.Entities";
+        generator.CrudClassName = "CoreDbReadWriteConnection";
+        generator.CrudClassNamespace = "AdventureWorks.Core.CoreDatabase";
+        
+        // Must be relative to the targetFolderPath
+        generator.CrudClassFile = @"..\..\AdventureWorks.Core.CoreDatabase\CoreDbReadWriteConnection.CRUD.generated.cs";
+
+        // TargetFolder (relative to the PS1 scripts which set the CurrentDirectory)
+        generator.Generate(targetFolder: Path.Combine(Directory.GetCurrentDirectory(), @"..\..\AdventureWorks.Core.Domain\Entities\"));
+    }
+}
 public class SimplePOCOGenerator
 {
     string _inputJsonSchema { get; set; }

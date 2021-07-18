@@ -1,8 +1,9 @@
 {
-  "LastRefreshed": "2020-11-28T16:16:52.3801204-03:00",
+  "$schema": "http://codegencs.com/schemas/dbschema/2021-07/dbschema.json",
+  "LastRefreshed": "2021-07-17T23:26:13.4705421-04:00",
   "Tables": [
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "dbo",
       "TableName": "AWBuildVersion",
       "TableType": "TABLE",
@@ -97,7 +98,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "dbo",
       "TableName": "DatabaseLog",
       "TableType": "TABLE",
@@ -263,7 +264,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "dbo",
       "TableName": "ErrorLog",
       "TableType": "TABLE",
@@ -437,7 +438,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "Department",
       "TableType": "TABLE",
@@ -569,7 +570,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "Employee",
       "TableType": "TABLE",
@@ -1068,7 +1069,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "EmployeeDepartmentHistory",
       "TableType": "TABLE",
@@ -1307,7 +1308,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "EmployeePayHistory",
       "TableType": "TABLE",
@@ -1445,7 +1446,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "JobCandidate",
       "TableType": "TABLE",
@@ -1578,7 +1579,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "Shift",
       "TableType": "TABLE",
@@ -1749,7 +1750,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "vEmployee",
       "TableType": "VIEW",
@@ -2035,7 +2036,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "vEmployeeDepartment",
       "TableType": "VIEW",
@@ -2200,7 +2201,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "vEmployeeDepartmentHistory",
       "TableType": "VIEW",
@@ -2380,7 +2381,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "vJobCandidate",
       "TableType": "VIEW",
@@ -2636,7 +2637,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "vJobCandidateEducation",
       "TableType": "VIEW",
@@ -2846,7 +2847,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "HumanResources",
       "TableName": "vJobCandidateEmployment",
       "TableType": "VIEW",
@@ -3026,7 +3027,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "Address",
       "TableType": "TABLE",
@@ -3348,7 +3349,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "AddressType",
       "TableType": "TABLE",
@@ -3497,7 +3498,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "BusinessEntity",
       "TableType": "TABLE",
@@ -3685,7 +3686,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "BusinessEntityAddress",
       "TableType": "TABLE",
@@ -3919,7 +3920,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "BusinessEntityContact",
       "TableType": "TABLE",
@@ -4153,7 +4154,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "ContactType",
       "TableType": "TABLE",
@@ -4270,7 +4271,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "CountryRegion",
       "TableType": "TABLE",
@@ -4422,7 +4423,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "EmailAddress",
       "TableType": "TABLE",
@@ -4576,7 +4577,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "Password",
       "TableType": "TABLE",
@@ -4704,7 +4705,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "Person",
       "TableType": "TABLE",
@@ -5217,7 +5218,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "PersonPhone",
       "TableType": "TABLE",
@@ -5382,7 +5383,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "PhoneNumberType",
       "TableType": "TABLE",
@@ -5481,7 +5482,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "StateProvince",
       "TableType": "TABLE",
@@ -5769,7 +5770,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "vAdditionalContactInfo",
       "TableType": "VIEW",
@@ -6038,7 +6039,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Person",
       "TableName": "vStateProvinceCountryRegion",
       "TableType": "VIEW",
@@ -6158,7 +6159,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "BillOfMaterials",
       "TableType": "TABLE",
@@ -6435,7 +6436,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "Culture",
       "TableType": "TABLE",
@@ -6551,7 +6552,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "Document",
       "TableType": "TABLE",
@@ -6899,7 +6900,7 @@
           ]
         },
         {
-          "IndexName": "UQ__Document__F73921F750C2BA4B",
+          "IndexName": "UQ__Document__F73921F7C5112C2E",
           "IndexId": 2,
           "PhysicalType": "NONCLUSTERED",
           "LogicalType": "UNIQUE_CONSTRAINT",
@@ -6919,7 +6920,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "Illustration",
       "TableType": "TABLE",
@@ -7018,7 +7019,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "Location",
       "TableType": "TABLE",
@@ -7185,7 +7186,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "Product",
       "TableType": "TABLE",
@@ -7980,7 +7981,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductCategory",
       "TableType": "TABLE",
@@ -8129,7 +8130,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductCostHistory",
       "TableType": "TABLE",
@@ -8266,7 +8267,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductDescription",
       "TableType": "TABLE",
@@ -8397,7 +8398,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductDocument",
       "TableType": "TABLE",
@@ -8521,7 +8522,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductInventory",
       "TableType": "TABLE",
@@ -8707,7 +8708,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductListPriceHistory",
       "TableType": "TABLE",
@@ -8844,7 +8845,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductModel",
       "TableType": "TABLE",
@@ -9095,7 +9096,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductModelIllustration",
       "TableType": "TABLE",
@@ -9220,7 +9221,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductModelProductDescriptionCulture",
       "TableType": "TABLE",
@@ -9385,7 +9386,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductPhoto",
       "TableType": "TABLE",
@@ -9529,7 +9530,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductProductPhoto",
       "TableType": "TABLE",
@@ -9679,7 +9680,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductReview",
       "TableType": "TABLE",
@@ -9885,7 +9886,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ProductSubcategory",
       "TableType": "TABLE",
@@ -10069,7 +10070,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "ScrapReason",
       "TableType": "TABLE",
@@ -10186,7 +10187,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "TransactionHistory",
       "TableType": "TABLE",
@@ -10422,7 +10423,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "TransactionHistoryArchive",
       "TableType": "TABLE",
@@ -10639,7 +10640,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "UnitMeasure",
       "TableType": "TABLE",
@@ -10809,7 +10810,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "WorkOrder",
       "TableType": "TABLE",
@@ -11091,7 +11092,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "WorkOrderRouting",
       "TableType": "TABLE",
@@ -11381,7 +11382,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "vProductAndDescription",
       "TableType": "VIEW",
@@ -11471,7 +11472,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "vProductModelCatalogDescription",
       "TableType": "VIEW",
@@ -11860,7 +11861,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Production",
       "TableName": "vProductModelInstructions",
       "TableType": "VIEW",
@@ -12044,7 +12045,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "ProductVendor",
       "TableType": "TABLE",
@@ -12349,7 +12350,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "PurchaseOrderDetail",
       "TableType": "TABLE",
@@ -12619,7 +12620,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "PurchaseOrderHeader",
       "TableType": "TABLE",
@@ -12968,7 +12969,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "ShipMethod",
       "TableType": "TABLE",
@@ -13167,7 +13168,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "Vendor",
       "TableType": "TABLE",
@@ -13395,7 +13396,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "vVendorWithAddresses",
       "TableType": "VIEW",
@@ -13545,7 +13546,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Purchasing",
       "TableName": "vVendorWithContacts",
       "TableType": "VIEW",
@@ -13741,7 +13742,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "CountryRegionCurrency",
       "TableType": "TABLE",
@@ -13882,7 +13883,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "CreditCard",
       "TableType": "TABLE",
@@ -14064,7 +14065,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "Currency",
       "TableType": "TABLE",
@@ -14216,7 +14217,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "CurrencyRate",
       "TableType": "TABLE",
@@ -14444,7 +14445,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "Customer",
       "TableType": "TABLE",
@@ -14714,7 +14715,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "PersonCreditCard",
       "TableType": "TABLE",
@@ -14839,7 +14840,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesOrderDetail",
       "TableType": "TABLE",
@@ -15130,7 +15131,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesOrderHeader",
       "TableType": "TABLE",
@@ -15821,7 +15822,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesOrderHeaderSalesReason",
       "TableType": "TABLE",
@@ -15946,7 +15947,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesPerson",
       "TableType": "TABLE",
@@ -16249,7 +16250,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesPersonQuotaHistory",
       "TableType": "TABLE",
@@ -16403,7 +16404,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesReason",
       "TableType": "TABLE",
@@ -16517,7 +16518,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesTaxRate",
       "TableType": "TABLE",
@@ -16720,7 +16721,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesTerritory",
       "TableType": "TABLE",
@@ -17054,7 +17055,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SalesTerritoryHistory",
       "TableType": "TABLE",
@@ -17248,7 +17249,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "ShoppingCartItem",
       "TableType": "TABLE",
@@ -17418,7 +17419,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SpecialOffer",
       "TableType": "TABLE",
@@ -17657,7 +17658,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "SpecialOfferProduct",
       "TableType": "TABLE",
@@ -17856,7 +17857,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "Store",
       "TableType": "TABLE",
@@ -18091,7 +18092,7 @@
       ]
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vIndividualCustomer",
       "TableType": "VIEW",
@@ -18377,7 +18378,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vPersonDemographics",
       "TableType": "VIEW",
@@ -18590,7 +18591,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vSalesPerson",
       "TableType": "VIEW",
@@ -18939,7 +18940,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vSalesPersonSalesByFiscalYears",
       "TableType": "VIEW",
@@ -19062,7 +19063,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vStoreWithAddresses",
       "TableType": "VIEW",
@@ -19212,7 +19213,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vStoreWithContacts",
       "TableType": "VIEW",
@@ -19408,7 +19409,7 @@
       "Indexes": []
     },
     {
-      "Database": "AdventureWorks",
+      "Database": "AdventureWorks2019",
       "TableSchema": "Sales",
       "TableName": "vStoreWithDemographics",
       "TableType": "VIEW",
