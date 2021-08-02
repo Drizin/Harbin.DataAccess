@@ -11,12 +11,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Harbin.DataAccess.Connections;
 using AdventureWorks.Core.Domain.Entities;
 
 namespace AdventureWorks.Core.CoreDatabase
 {
-    // in case you don't want to use Repositories (which generate CRUD using Dapper FastCRUD)
+    /// <summary>
+    /// CRUD Methods using Dapper (using static SQL statements)
+    /// </summary>
     partial class CoreDbReadWriteConnection
     {
 
@@ -56,7 +57,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @StateProvinceId
             )";
 
-            e.AddressId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.AddressId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -105,7 +106,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.AddressTypeId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.AddressTypeId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -152,7 +153,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @VersionDate
             )";
 
-            e.SystemInformationId = _dbConnection.Query<byte>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.SystemInformationId = this.Query<byte>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -210,7 +211,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @UnitMeasureCode
             )";
 
-            e.BillOfMaterialsId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.BillOfMaterialsId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -259,7 +260,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ModifiedDate
             )";
 
-            e.BusinessEntityId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.BusinessEntityId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -409,7 +410,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.ContactTypeId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ContactTypeId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -557,7 +558,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ModifiedDate
             )";
 
-            e.CreditCardId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.CreditCardId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -709,7 +710,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ToCurrencyCode
             )";
 
-            e.CurrencyRateId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.CurrencyRateId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -762,7 +763,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @TerritoryId
             )";
 
-            e.CustomerId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.CustomerId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -819,7 +820,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @XmlEvent
             )";
 
-            e.DatabaseLogId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.DatabaseLogId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -871,7 +872,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.DepartmentId = _dbConnection.Query<short>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.DepartmentId = this.Query<short>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -919,7 +920,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ModifiedDate
             )";
 
-            e.EmailAddressId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.EmailAddressId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1171,7 +1172,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @UserName
             )";
 
-            e.ErrorLogId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ErrorLogId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1222,7 +1223,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ModifiedDate
             )";
 
-            e.IllustrationId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.IllustrationId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1269,7 +1270,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Resume
             )";
 
-            e.JobCandidateId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.JobCandidateId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1319,7 +1320,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.LocationId = _dbConnection.Query<short>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.LocationId = this.Query<short>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1594,7 +1595,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.PhoneNumberTypeId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.PhoneNumberTypeId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1681,7 +1682,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @WeightUnitMeasureCode
             )";
 
-            e.ProductId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1747,7 +1748,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.ProductCategoryId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductCategoryId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -1847,7 +1848,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ModifiedDate
             )";
 
-            e.ProductDescriptionId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductDescriptionId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2054,7 +2055,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.ProductModelId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductModelId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2209,7 +2210,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ThumbnailPhotoFileName
             )";
 
-            e.ProductPhotoId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductPhotoId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2319,7 +2320,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ReviewerName
             )";
 
-            e.ProductReviewId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductReviewId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2371,7 +2372,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ProductCategoryId
             )";
 
-            e.ProductSubcategoryId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ProductSubcategoryId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2502,7 +2503,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @UnitPrice
             )";
 
-            e.PurchaseOrderDetailId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.PurchaseOrderDetailId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2572,7 +2573,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @VendorId
             )";
 
-            e.PurchaseOrderId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.PurchaseOrderId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2638,7 +2639,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @UnitPriceDiscount
             )";
 
-            e.SalesOrderDetailId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.SalesOrderDetailId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2730,7 +2731,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @TerritoryId
             )";
 
-            e.SalesOrderId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.SalesOrderId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -2961,7 +2962,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ReasonType
             )";
 
-            e.SalesReasonId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.SalesReasonId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3013,7 +3014,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @TaxType
             )";
 
-            e.SalesTaxRateId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.SalesTaxRateId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3073,7 +3074,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @SalesYtd
             )";
 
-            e.TerritoryId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.TerritoryId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3180,7 +3181,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Name
             )";
 
-            e.ScrapReasonId = _dbConnection.Query<short>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ScrapReasonId = this.Query<short>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3229,7 +3230,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @StartTime
             )";
 
-            e.ShiftId = _dbConnection.Query<byte>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ShiftId = this.Query<byte>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3280,7 +3281,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ShipRate
             )";
 
-            e.ShipMethodId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ShipMethodId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3333,7 +3334,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @ShoppingCartId
             )";
 
-            e.ShoppingCartItemId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.ShoppingCartItemId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3395,7 +3396,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @Type
             )";
 
-            e.SpecialOfferId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.SpecialOfferId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3504,7 +3505,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @TerritoryId
             )";
 
-            e.StateProvinceId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.StateProvinceId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3619,7 +3620,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @TransactionType
             )";
 
-            e.TransactionId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.TransactionId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record
@@ -3859,7 +3860,7 @@ namespace AdventureWorks.Core.CoreDatabase
                 @StartDate
             )";
 
-            e.WorkOrderId = _dbConnection.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
+            e.WorkOrderId = this.Query<int>(cmd + "SELECT SCOPE_IDENTITY();", e, transaction, commandTimeout: commandTimeout).Single();
         }
         /// <summary>
         /// Updates existing record

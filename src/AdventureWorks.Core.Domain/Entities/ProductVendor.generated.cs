@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using AdventureWorks.Core.Domain.Entities;
 
 namespace AdventureWorks.Core.Domain.Entities
 {
@@ -33,7 +32,7 @@ namespace AdventureWorks.Core.Domain.Entities
         public string UnitMeasureCode { get; set; }
         #endregion Members
 
-        #region Equals / GetHashCode
+        #region Equals/GetHashCode
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -100,6 +99,6 @@ namespace AdventureWorks.Core.Domain.Entities
             return !Equals(left, right);
         }
 
-        #endregion Equals / GetHashCode
+        #endregion Equals/GetHashCode
     }
 }

@@ -17,7 +17,7 @@ $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
 Write-host "Starting codegencs dbschema-extractor ..." -for yellow
 
 # TO INSTALL: dotnet tool install -g dotnet-codegencs
-& codegencs dbschema-extractor /mssql /cn="Data Source=(local)\SQLEXPRESS; Initial Catalog=AdventureWorks2019; Integrated Security=True;" /output=..\CoreDbSchema.json
+& codegencs extract-dbschema mssql "Data Source=(local)\SQLEXPRESS; Initial Catalog=AdventureWorks2019; Integrated Security=True;" ..\CoreDbSchema.json
 
 $stopwatch.Stop()
 Write-Host "Finished in $($stopwatch.Elapsed.TotalMilliSeconds) milliseconds"

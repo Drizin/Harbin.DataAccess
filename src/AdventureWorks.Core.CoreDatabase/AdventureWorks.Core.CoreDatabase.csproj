@@ -5,15 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CodeGenerator\LogicalSchema.cs" />
-    <Compile Remove="CodeGenerator\SimplePOCOGenerator.cs" />
-    <Compile Remove="_LogicalSchema.cs" />
-    <Compile Remove="_SimplePOCOGenerator.cs" />
+	<Compile Remove="CodeGenerator\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="CodeGenerator\LogicalSchema.cs" />
-    <None Include="CodeGenerator\LogicalSchema.cs" />
     <None Include="CodeGenerator\SimplePOCOGenerator.cs" />
   </ItemGroup>
 

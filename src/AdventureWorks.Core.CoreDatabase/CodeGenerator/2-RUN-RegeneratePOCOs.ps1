@@ -14,10 +14,9 @@ $ErrorActionPreference = "Stop"
 
 
 $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
-Write-host "Starting dotnet run ..." -for yellow
+Write-host "Starting codegencs run ..." -for yellow
 
-& dotnet run SimplePOCOGenerator.csproj
-& dotnet clean SimplePOCOGenerator.csproj 
+& codegencs run SimplePOCOGenerator.cs
 
 $stopwatch.Stop()
 Write-Host "Finished in $($stopwatch.Elapsed.TotalMilliSeconds) milliseconds"

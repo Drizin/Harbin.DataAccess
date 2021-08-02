@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdventureWorks.Core.CoreDatabase\AdventureWorks.Core.CoreDatabase.csproj" />
     <ProjectReference Include="..\AdventureWorks.Core.Domain\AdventureWorks.Core.Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure.Database\Infrastructure.Database.csproj" />
+    <!--<ProjectReference Include="..\Infrastructure.Database\Infrastructure.Database.csproj" />-->
   </ItemGroup>
 
 </Project>
