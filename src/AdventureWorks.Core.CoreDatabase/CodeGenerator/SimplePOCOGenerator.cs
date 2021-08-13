@@ -60,6 +60,12 @@ namespace CodegenCS.DbSchema.Templates.SimplePOCOGenerator
         public bool AddColumnAttributeKey { get; set; } = true;
 
         /// <summary>
+        /// If defined (default is true) will add [Required] attributes to non-identity primary-key columns.
+        /// This is required by SimpleCRUD
+        /// </summary>
+        public bool AddColumnAttributeRequired { get; set; } = true;
+
+        /// <summary>
         /// If defined (default is true) will add [DatabaseGenerated] attributes to identity and computed columns.
         /// This is required by FastCRUD and Entity Framework
         /// </summary>
@@ -524,6 +530,8 @@ namespace CodegenCS.DbSchema.Templates.SimplePOCOGenerator
                 writer.WriteLine($"private {GetTypeDefinitionForDatabaseColumn(table, column) ?? ""} {privateVariable};");
             if (column.IsPrimaryKeyMember && _options.AddColumnAttributeKey)
                 writer.WriteLine("[Key]");
+            if (column.IsPrimaryKeyMember && !column.IsIdentity  && _options.AddColumnAttributeRequired)
+                writer.WriteLine("[Required]");
             if (column.IsIdentity && _options.AddColumnAttributeDatabaseGenerated)
                 writer.WriteLine("[DatabaseGenerated(DatabaseGeneratedOption.Identity)]");
             else if (column.IsComputed && _options.AddColumnAttributeDatabaseGenerated)

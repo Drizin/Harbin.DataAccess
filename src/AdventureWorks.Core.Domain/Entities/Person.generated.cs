@@ -18,6 +18,7 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public int BusinessEntityId { get; set; }
         public string AdditionalContactInfo { get; set; }
         public string Demographics { get; set; }

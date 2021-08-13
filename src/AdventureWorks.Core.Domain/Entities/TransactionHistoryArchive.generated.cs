@@ -18,6 +18,7 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public int TransactionId { get; set; }
         public decimal ActualCost { get; set; }
         public DateTime ModifiedDate { get; set; }

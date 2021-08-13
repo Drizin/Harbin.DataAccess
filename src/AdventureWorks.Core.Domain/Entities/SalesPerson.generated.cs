@@ -18,6 +18,7 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public int BusinessEntityId { get; set; }
         public decimal Bonus { get; set; }
         public decimal CommissionPct { get; set; }

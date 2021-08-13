@@ -18,6 +18,7 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public string UnitMeasureCode { get; set; }
         public DateTime ModifiedDate { get; set; }
         public string Name { get; set; }

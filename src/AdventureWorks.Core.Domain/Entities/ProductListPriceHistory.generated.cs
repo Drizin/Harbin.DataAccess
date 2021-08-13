@@ -18,8 +18,10 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public int ProductId { get; set; }
         [Key]
+        [Required]
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public decimal ListPrice { get; set; }

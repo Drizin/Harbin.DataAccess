@@ -18,6 +18,7 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public int BusinessEntityId { get; set; }
         public DateTime BirthDate { get; set; }
         public bool CurrentFlag { get; set; }

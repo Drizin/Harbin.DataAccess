@@ -18,10 +18,13 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public int ProductModelId { get; set; }
         [Key]
+        [Required]
         public int ProductDescriptionId { get; set; }
         [Key]
+        [Required]
         public string CultureId { get; set; }
         public DateTime ModifiedDate { get; set; }
         #endregion Members

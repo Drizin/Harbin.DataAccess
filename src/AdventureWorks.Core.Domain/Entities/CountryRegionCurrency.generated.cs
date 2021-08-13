@@ -18,8 +18,10 @@ namespace AdventureWorks.Core.Domain.Entities
     {
         #region Members
         [Key]
+        [Required]
         public string CountryRegionCode { get; set; }
         [Key]
+        [Required]
         public string CurrencyCode { get; set; }
         public DateTime ModifiedDate { get; set; }
         #endregion Members
