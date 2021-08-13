@@ -2,24 +2,24 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
-    <AssemblyName>Harbin.DataAccess.DapperFastCRUD</AssemblyName>
-    <RootNamespace>Harbin.DataAccess.DapperFastCRUD</RootNamespace>
+    <AssemblyName>Harbin.DataAccess.DapperSimpleCRUD</AssemblyName>
+    <RootNamespace>Harbin.DataAccess.DapperSimpleCRUD</RootNamespace>
 	<Authors>Rick Drizin</Authors>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<PackageProjectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess/</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.DapperSimpleCRUD/</PackageProjectUrl>
 	<Description>Data Access library based on Dapper, Dapper.FastCRUD, and DapperQueryBuilder. 
 Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
     <Version>1.0.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <DocumentationFile>Harbin.DataAccess.DapperFastCRUD.xml</DocumentationFile>
+    <DocumentationFile>Harbin.DataAccess.DapperSimpleCRUD.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.35" />
-    <PackageReference Include="Dapper-QueryBuilder" Version="1.0.5" />
-    <PackageReference Include="Dapper.FastCrud" Version="2.5.0.39" />
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="Dapper-QueryBuilder" Version="1.1.0" />
+    <PackageReference Include="Dapper.SimpleCRUD" Version="2.3.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0-rc.1.20451.14" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>

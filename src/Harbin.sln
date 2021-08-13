@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harbin.DataAccess", "Harbin.DataAccess.DapperFastCRUD\Harbin.DataAccess.DapperFastCRUD.csproj", "{8152565A-5689-42C6-ACC5-144C45FF55B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harbin.DataAccess.DapperFastCRUD", "Harbin.DataAccess.DapperFastCRUD\Harbin.DataAccess.DapperFastCRUD.csproj", "{8152565A-5689-42C6-ACC5-144C45FF55B3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventureWorks.Core.Domain", "AdventureWorks.Core.Domain\AdventureWorks.Core.Domain.csproj", "{510AF151-E3F6-4E31-9CD3-1969ABF417A5}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventureWorks.Core.Applica
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventureWorks.Core.CoreDatabase", "AdventureWorks.Core.CoreDatabase\AdventureWorks.Core.CoreDatabase.csproj", "{73CB2FE2-5BE0-40BB-8B5E-8FC4C6FECED4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Core.Tests", "AdventureWorks.Core.Tests\AdventureWorks.Core.Tests.csproj", "{AE8FDCA1-C5BA-4477-880B-B9F9CFE1AC0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventureWorks.Core.Tests", "AdventureWorks.Core.Tests\AdventureWorks.Core.Tests.csproj", "{AE8FDCA1-C5BA-4477-880B-B9F9CFE1AC0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harbin.DataAccess.DapperSimpleCRUD", "Harbin.DataAccess.DapperSimpleCRUD\Harbin.DataAccess.DapperSimpleCRUD.csproj", "{3EFA2D46-F95A-4200-847D-56D76C1A367C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{AE8FDCA1-C5BA-4477-880B-B9F9CFE1AC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE8FDCA1-C5BA-4477-880B-B9F9CFE1AC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE8FDCA1-C5BA-4477-880B-B9F9CFE1AC0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EFA2D46-F95A-4200-847D-56D76C1A367C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFA2D46-F95A-4200-847D-56D76C1A367C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFA2D46-F95A-4200-847D-56D76C1A367C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFA2D46-F95A-4200-847D-56D76C1A367C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
