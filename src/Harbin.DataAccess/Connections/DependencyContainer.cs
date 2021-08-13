@@ -9,7 +9,7 @@ namespace Harbin.DataAccess.Connections
     public static class DependencyContainer
     {
         /// <summary>
-        /// For systems which have multiple database connections, registers a IReadOnlyDbConnection<DB>
+        /// For systems which have multiple database connections, registers a IReadOnlyDbConnection{DB}
         /// </summary>
         public static IServiceCollection AddReadOnlyDbConnection<DB>(this IServiceCollection services, IDbConnectionFactory connFactory)
         {
@@ -18,7 +18,7 @@ namespace Harbin.DataAccess.Connections
         }
 
         /// <summary>
-        /// For systems which have only single database connection, registers a IReadOnlyDbConnection<DB>
+        /// For systems which have only single database connection, registers a IReadOnlyDbConnection{DB}
         /// </summary>
         public static IServiceCollection AddReadOnlyDbConnection(this IServiceCollection services, IDbConnectionFactory connFactory)
         {
@@ -27,7 +27,7 @@ namespace Harbin.DataAccess.Connections
         }
 
         /// <summary>
-        /// For systems which have multiple database connections, registers a IReadWriteDbConnection<DB>
+        /// For systems which have multiple database connections, registers a IReadWriteDbConnection{DB}
         /// </summary>
         public static IServiceCollection AddReadWriteDbConnection<DB>(this IServiceCollection services, IDbConnectionFactory connFactory)
         {
@@ -36,7 +36,7 @@ namespace Harbin.DataAccess.Connections
         }
 
         /// <summary>
-        /// For systems which have only single database connection, registers a IReadWriteDbConnection<DB>
+        /// For systems which have only single database connection, registers a IReadWriteDbConnection{DB}
         /// </summary>
         public static IServiceCollection AddReadWriteDbConnection(this IServiceCollection services, IDbConnectionFactory connFactory)
         {
