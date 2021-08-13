@@ -4,9 +4,9 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using DapperQueryBuilder;
-using Harbin.DataAccess.Connections;
+using Harbin.DataAccess.DapperFastCRUD.Connections;
 
-namespace Harbin.DataAccess.Repositories
+namespace Harbin.DataAccess.DapperFastCRUD.Repositories
 {
     /// <summary>
     /// Wraps DapperQueryBuilder library but simplifying the Query extensions to show only the extensions which return the type TEntity 

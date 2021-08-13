@@ -1,6 +1,6 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
 using Dapper;
-using Harbin.DataAccess.Connections;
+using Harbin.DataAccess.DapperFastCRUD.Connections;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using Moq.Dapper;

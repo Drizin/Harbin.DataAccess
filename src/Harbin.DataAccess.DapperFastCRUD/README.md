@@ -25,7 +25,7 @@ Harbin Database Library was designed based on the following ideas:
 
 ## Installation
 Just install nuget package **[Harbin.DataAccess](https://www.nuget.org/packages/Harbin.DataAccess/)**, 
-add `using Harbin.DataAccess.Connections`, `using Harbin.DataAccess.Repositories`, and start using (see examples below).  
+add `using Harbin.DataAccess.DapperFastCRUD.Connections`, `using Harbin.DataAccess.DapperFastCRUD.Repositories`, and start using (see examples below).  
 See documentation below, or more examples in [unit tests](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Tests).
 
 ## Documentation

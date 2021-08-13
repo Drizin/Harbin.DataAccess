@@ -1,12 +1,12 @@
 ﻿using Dapper;
-using Harbin.DataAccess.Repositories;
+using Harbin.DataAccess.DapperFastCRUD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.Connections
+namespace Harbin.DataAccess.DapperFastCRUD.Connections
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),

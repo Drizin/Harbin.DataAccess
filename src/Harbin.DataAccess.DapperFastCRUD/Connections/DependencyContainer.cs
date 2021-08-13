@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace Harbin.DataAccess.Connections
+namespace Harbin.DataAccess.DapperFastCRUD.Connections
 {
     public static class DependencyContainer
     {
