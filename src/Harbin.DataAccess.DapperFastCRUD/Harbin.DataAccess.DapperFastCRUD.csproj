@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net472</TargetFrameworks>
-    <AssemblyName>Harbin.DataAccess</AssemblyName>
-    <RootNamespace>Harbin.DataAccess</RootNamespace>
+    <AssemblyName>Harbin.DataAccess.DapperFastCRUD</AssemblyName>
+    <RootNamespace>Harbin.DataAccess.DapperFastCRUD</RootNamespace>
 	<Authors>Rick Drizin</Authors>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageProjectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess/</PackageProjectUrl>
