@@ -1,24 +1,48 @@
 <?xml version="1.0"?>
 <package >
-  <metadata>
-    <id>Harbin.DataAccess.DapperSimpleCRUD</id>
-    <version>1.0.4</version>
-    <title>Harbin.DataAccess.DapperSimpleCRUD</title>
-    <authors>Rick Drizin</authors>
-    <owners>Rick Drizin</owners>
-    <license type="expression">MIT</license>
-    <projectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.DapperSimpleCRUD</projectUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Data Access library based on Dapper, Dapper.SimpleCRUD, and DapperQueryBuilder. 
-Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.</description>
-    <copyright>Copyright Rick Drizin 2020</copyright>
-    <tags>data access library;dapper;dapperquerybuilder;simplecrud;repository-pattern</tags>
-    <repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess" commit="02740e8421829973f87544d299164897b128b878" />
-    <dependencies>
-    </dependencies>
-  </metadata>
-  <files>
-    <file src="bin\Release\net472\Harbin.DataAccess.*" target="lib\net472" />
-    <file src="bin\Release\netstandard2.1\Harbin.DataAccess.*" target="lib\netstandard2.1" />
-  </files>
+	<metadata>
+		<id>Harbin.DataAccess.DapperSimpleCRUD</id>
+		<version>1.0.5</version>
+		<title>Harbin.DataAccess.DapperSimpleCRUD</title>
+		<authors>Rick Drizin</authors>
+		<owners>Rick Drizin</owners>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.DapperSimpleCRUD</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>
+			Data Access library based on Dapper, Dapper.SimpleCRUD, and DapperQueryBuilder.
+			Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.
+		</description>
+		<copyright>Copyright Rick Drizin 2020</copyright>
+		<tags>data-access-library dapper dapperquerybuilder fastcrud repository-pattern</tags>
+		<repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.DapperSimpleCRUD" commit="02740e8421829973f87544d299164897b128b878" />
+		<dependencies>
+			<group targetFramework="net472">
+				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper-QueryBuilder" version="[1.1.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper.SimpleCRUD" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.Extensions.DependencyInjection" version="[5.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="System.Data.SqlClient" version="[4.0.0,)" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework="netstandard2.0">
+				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper-QueryBuilder" version="[1.1.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper.SimpleCRUD" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.Extensions.DependencyInjection" version="[5.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="System.Data.SqlClient" version="[4.0.0,)" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework="netstandard2.1">
+				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper-QueryBuilder" version="[1.1.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper.SimpleCRUD" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.Extensions.DependencyInjection" version="[5.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="System.Data.SqlClient" version="[4.0.0,)" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\net472\Harbin.DataAccess.*" target="lib\net472" />
+		<file src="bin\Release\netstandard2.1\Harbin.DataAccess.*" target="lib\netstandard2.1" />
+		<file src="bin\Release\netstandard2.0\Harbin.DataAccess.*" target="lib\netstandard2.0" />
+	</files>
 </package>
