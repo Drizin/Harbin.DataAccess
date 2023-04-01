@@ -1,10 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
+namespace Harbin.DataAccess.Connections
 {
     public static class DependencyContainer
     {

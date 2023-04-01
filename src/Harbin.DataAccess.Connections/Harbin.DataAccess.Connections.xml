@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Harbin.DataAccess.Connections</name>
+    </assembly>
+    <members>
+        <member name="M:Harbin.DataAccess.Connections.DependencyContainer.AddReadOnlyDbConnection``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <summary>
+            For systems which have multiple database connections, registers a IReadOnlyDbConnection{DB}
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.DependencyContainer.AddReadOnlyDbConnection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <summary>
+            For systems which have only single database connection, registers a IReadOnlyDbConnection{DB}
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.DependencyContainer.AddReadWriteDbConnection``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <summary>
+            For systems which have multiple database connections, registers a IReadWriteDbConnection{DB}
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.DependencyContainer.AddReadWriteDbConnection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <summary>
+            For systems which have only single database connection, registers a IReadWriteDbConnection{DB}
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.DependencyContainer.AddIDbConnection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <summary>
+            For systems which have only single database connection, registers IDbConnectionFactory and IDbConnection
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.IReadDbConnection">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            </summary>
+        </member>
+        <member name="P:Harbin.DataAccess.Connections.IReadDbConnection.DbConnection">
+            <summary>
+            Underlying IDbConnection
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.Query``1(System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryFirst``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryFirstOrDefault``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QuerySingle``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QuerySingleOrDefault``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryFirstAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryFirstOrDefaultAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QuerySingleAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QuerySingleOrDefaultAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryBuilder">
+            <summary>
+            Creates a DapperQueryBuilder, which is a builder for dynamically building queries using string interpolation (but it's SQL-Injection safe).
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadDbConnection.QueryBuilder(System.FormattableString)">
+            <summary>
+            Creates a DapperQueryBuilder, which is a builder for dynamically building queries using string interpolation (but it's SQL-Injection safe).
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.IReadDbConnection`1">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            The generic type can be used if your application connects to multiple databases (different set of tables on each)
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.IReadOnlyDbConnection">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            Almost same as <see cref="T:Harbin.DataAccess.Connections.IReadDbConnection"/> (doesn't add anything), but this is strictly a read-only connection, 
+            so you can provide (and expect) a read-only connection string (for safety), and/or can point to read-replicas.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.IReadOnlyDbConnection`1">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            Almost same as <see cref="T:Harbin.DataAccess.Connections.IReadDbConnection"/> (doesn't add anything), but this is strictly a read-only connection, 
+            so you can provide (and expect) a read-only connection string (for safety), and/or can point to read-replicas.
+            The generic type can be used if your application connects to multiple databases (different set of tables on each)
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.IReadWriteDbConnection">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (Queries) and Dapper Execute extensions (Commands).
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadWriteDbConnection.Execute(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the number of rows affected.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.IReadWriteDbConnection.ExecuteAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the number of rows affected.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.IReadWriteDbConnection`1">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ReadDbConnection">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            </summary>
+        </member>
+        <member name="P:Harbin.DataAccess.Connections.ReadDbConnection.DbConnection">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.#ctor(System.Data.IDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.#ctor(Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.Query``1(System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirst``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstOrDefault``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingle``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingleOrDefault``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.Query(System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirst(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstOrDefault(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingle(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.Query(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirst(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstOrDefault(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingle(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstOrDefaultAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingleAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingleOrDefaultAsync``1(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstOrDefaultAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingleAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryAsync(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstAsync(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryFirstOrDefaultAsync(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QuerySingleAsync(System.Type,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as type.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection.QueryBuilder(System.FormattableString)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ReadDbConnection`1">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions)
+            The generic type can be used if your application connects to multiple databases (different set of tables on each)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection`1.#ctor(System.Data.IDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection`1.#ctor(Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadDbConnection`1.#ctor(Harbin.DataAccess.Connections.IDbConnectionFactory{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ReadOnlyDbConnection">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            The underlying IDbConnection can be a read-only connection (for safety) and/or can point to read-replicas.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadOnlyDbConnection.#ctor(System.Data.IDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ReadOnlyDbConnection`1">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (not Execute extensions).
+            The underlying IDbConnection can be a read-only connection (for safety) and/or can point to read-replicas.
+            The generic type can be used if your application connects to multiple databases (different set of tables on each)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadOnlyDbConnection`1.#ctor(System.Data.IDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ReadWriteDbConnection">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (Queries) and Dapper Execute extensions (Commands).
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection.#ctor(System.Data.IDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection.#ctor(Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection.Execute(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the number of rows affected.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection.ExecuteAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the number of rows affected.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ReadWriteDbConnection`1">
+            <summary>
+            Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
+            and exposes facade methods to invoke Dapper Query extensions (Queries) and Dapper Execute extensions (Commands).
+            The generic type can be used if your application connects to multiple databases (different set of tables on each)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection`1.#ctor(System.Data.IDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection`1.#ctor(Harbin.DataAccess.Connections.IDbConnectionFactory)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection`1.#ctor(Harbin.DataAccess.Connections.IDbConnectionFactory{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection`1.Execute(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the number of rows affected.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ReadWriteDbConnection`1.ExecuteAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the number of rows affected.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.ITableNameResolver">
+            <summary>
+            Gets table information by the entity type
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.ITableNameResolver.GetTableName``1">
+            <summary>
+            Gets the table name by the entity type
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Connections.TableNameResolver">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Connections.TableNameResolver.GetTableName``1">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>Harbin.DataAccess.Connections</id>
+		<version>2.0.0</version>
+		<title>Harbin.DataAccess.Connections</title>
+		<authors>Rick Drizin</authors>
+		<owners>Rick Drizin</owners>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>
+			Data Access library based on Dapper and DapperQueryBuilder.
+			Helps to manage connections to distributed databases and/or read-replicas,
+			and supports the implementation of Non-Generic Repositories (Repository Pattern).
+		</description>
+		<copyright>Copyright Rick Drizin 2020</copyright>
+		<tags>data-access-library dapper dapperquerybuilder simplecrud repository-pattern</tags>
+		<repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess" commit="02740e8421829973f87544d299164897b128b878" />
+		<dependencies>
+			<group targetFramework="net472">
+				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper-QueryBuilder" version="[1.2.9,)" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.Extensions.DependencyInjection" version="[5.0.0,)" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework="netstandard2.0">
+				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper-QueryBuilder" version="[1.2.9,)" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.Extensions.DependencyInjection" version="[5.0.0,)" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework="netstandard2.1">
+				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />
+				<dependency id="Dapper-QueryBuilder" version="[1.2.9,)" exclude="Build,Analyzers" />
+				<dependency id="Microsoft.Extensions.DependencyInjection" version="[5.0.0,)" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\net472\Harbin.DataAccess.Connections.*" target="lib\net472" />
+		<file src="bin\Release\netstandard2.1\Harbin.DataAccess.Connections.*" target="lib\netstandard2.1" />
+		<file src="bin\Release\netstandard2.0\Harbin.DataAccess.Connections.*" target="lib\netstandard2.0" />
+	</files>
+</package>

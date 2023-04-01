@@ -1,11 +1,12 @@
 ﻿using Dapper;
-using Harbin.DataAccess.DapperSimpleCRUD.Repositories;
+using DapperQueryBuilder;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
+namespace Harbin.DataAccess.Connections
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
@@ -13,13 +14,18 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
     /// </summary>
     public class ReadDbConnection : IReadDbConnection, IDbConnection
     {
-        public readonly IDbConnection _dbConnection;
+        protected readonly IDbConnection _dbConnection;
+
+        /// <inheritdoc/>
         public IDbConnection DbConnection { get { return _dbConnection; } }
 
+        /// <inheritdoc/>
         public ReadDbConnection(IDbConnection dbConnection)
         {
             _dbConnection = dbConnection;
         }
+        
+        /// <inheritdoc/>
         public ReadDbConnection(IDbConnectionFactory connFactory) : this(connFactory.CreateConnection())
         {
         }
@@ -240,6 +246,20 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
         }
         #endregion
 
+        #region DapperQueryBuilder
+        /// <inheritdoc/>
+        public virtual QueryBuilder QueryBuilder()
+        {
+            return new QueryBuilder(this);
+        }
+
+        /// <inheritdoc/>
+        public virtual QueryBuilder QueryBuilder(FormattableString query)
+        {
+            return new QueryBuilder(this, query);
+        }
+        #endregion
+
         #region IDbConnection facades (composition)
         public string ConnectionString { get => DbConnection.ConnectionString; set => throw new NotImplementedException(); }
 
@@ -319,35 +339,6 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
-        #endregion
-
-
-        #region GetReadRepository<T>
-        /// <summary>
-        /// Get a Repository which you know that resides in this physical database
-        /// Instead of this you can also create extensions methods to access all repositories which belong to a given physical database, like this:
-        /// public static IReadDbRepository<YourEntity> GetYourEntityRepository(this IReadDbConnection<YourDatabase> db) => new ReadDbRepository<YourEntity, YourDatabase>(db);
-        /// </summary>
-        public virtual IReadDbRepository<TEntity> GetReadRepository<TEntity>() 
-        {
-            if (_registeredTypes.ContainsKey(typeof(TEntity)))
-                return (IReadDbRepository<TEntity>)Activator.CreateInstance(_registeredTypes[typeof(TEntity)], new object[] { this });
-            return new ReadDbRepository<TEntity>(this);
-        }
-
-        private static Dictionary<Type, Type> _registeredTypes = new Dictionary<Type, Type>();
-        /// <summary>
-        /// Register a custom Repository
-        /// </summary>
-        public static void RegisterRepositoryType<TEntity, TRepository>() where TRepository : IReadDbRepository<TEntity>
-        {
-            if (typeof(TRepository).IsAbstract || typeof(TRepository).IsInterface)
-                throw new ArgumentException("Cannot create instance of interface or abstract class");
-
-            _registeredTypes.Add(typeof(TEntity), typeof(TRepository));
-        }
-        public static void CleanRegisteredRepositories() => _registeredTypes.Clear();
-
         #endregion
 
     }

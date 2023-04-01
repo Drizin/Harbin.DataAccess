@@ -4,7 +4,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
+namespace Harbin.DataAccess.Connections
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
@@ -12,7 +12,7 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
     /// </summary>
     public interface IReadWriteDbConnection : IReadDbConnection, IDbConnection
     {
-        #region Dapper (ICompleteQuery.Execute())
+        #region Dapper Execute()
         /// <summary>
         /// Executes the query (using Dapper), returning the number of rows affected.
         /// </summary>

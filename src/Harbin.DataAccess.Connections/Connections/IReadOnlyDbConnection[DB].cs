@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
+namespace Harbin.DataAccess.Connections
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),

@@ -1,10 +1,4 @@
-﻿using Harbin.DataAccess.DapperSimpleCRUD.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Threading.Tasks;
-
-namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
+﻿namespace Harbin.DataAccess.Connections
 {
     /// <summary>
     /// Wraps an underlying IDbConnection (but implements IDbConnection so can be used as IDbConnection),
@@ -14,6 +8,5 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Connections
     /// </summary>
     public interface IReadOnlyDbConnection : IReadDbConnection
     {
-        IReadOnlyDbRepository<TEntity> GetReadOnlyRepository<TEntity>();
     }
 }
