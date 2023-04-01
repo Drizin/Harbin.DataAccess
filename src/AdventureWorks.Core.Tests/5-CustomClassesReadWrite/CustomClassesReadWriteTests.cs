@@ -1,15 +1,11 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Dapper;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
+using AdventureWorks.Core.Tests.CustomClasses;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClassesReadWrite
 {
@@ -27,8 +23,9 @@ namespace AdventureWorks.Core.Tests.CustomClassesReadWrite
         [TearDown]
         public void TearDown()
         {
-            MyDBReadConnection.CleanRegisteredRepositories();
-            MyDBReadWriteConnection.CleanRegisteredRepositories();
+            DefaultFactories.ReadWriteDbRepositoryFactory = new ReadWriteDbRepositoryFactory();
+            DefaultFactories.ReadDbRepositoryFactory = new ReadDbRepositoryFactory();
+            DefaultFactories.ReadDbRepositoryFactory = new ReadDbRepositoryFactory();
         }
         
 
@@ -43,8 +40,8 @@ namespace AdventureWorks.Core.Tests.CustomClassesReadWrite
             var rconn = new MyDBReadConnection(new System.Data.SqlClient.SqlConnection(cnStr));
             var wconn = new MyDBReadWriteConnection(new System.Data.SqlClient.SqlConnection(cnStr));
 
-            MyDBReadConnection.RegisterRepositoryType<Person, PersonReadRepository>();
-            MyDBReadWriteConnection.RegisterRepositoryType<Person, PersonReadWriteRepository>();
+            DefaultFactories.ReadDbRepositoryFactory.RegisterTransient<Person, PersonReadRepository>(conn => new PersonReadRepository(conn));
+            DefaultFactories.ReadWriteDbRepositoryFactory.RegisterTransient<Person, PersonReadWriteRepository>(conn => new PersonReadWriteRepository(conn));
 
             var svc = new MyAppService(rconn, wconn);
             var bestCustomers = svc.GetUpdatedBestCustomers(); // crashes on this cast: var repo1 = (PersonReadRepository) _rconn.GetReadRepository<Person>();

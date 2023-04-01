@@ -1,16 +1,15 @@
 ﻿using AdventureWorks.Core.CoreDatabase;
 using AdventureWorks.Core.Domain.Entities;
 using Dapper;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
+using Harbin.DataAccess.Connections;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using Moq.Dapper;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.ExtensionMethods
 {

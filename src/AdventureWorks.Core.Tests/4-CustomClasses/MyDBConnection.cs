@@ -1,10 +1,7 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
-using System;
-using System.Collections.Generic;
+using Harbin.DataAccess.Connections;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using System.Data;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClasses
 {
@@ -19,15 +16,6 @@ namespace AdventureWorks.Core.Tests.CustomClasses
         public virtual void CalculateBestCustomers(IDbTransaction transaction = null, int? commandTimeout = null)
         {
             this.Execute("UPDATE [Person].[Person] SET [FirstName]=[FirstName]", param: null, transaction: transaction, commandTimeout: commandTimeout);
-        }
-        #endregion
-
-        #region Custom Repositories
-        public override IReadWriteDbRepository<TEntity> GetReadWriteRepository<TEntity>()
-        {
-            if (typeof(TEntity) == typeof(Person))
-                return (IReadWriteDbRepository<TEntity>) new PersonRepository(this);
-            return base.GetReadWriteRepository<TEntity>();
         }
         #endregion
     }

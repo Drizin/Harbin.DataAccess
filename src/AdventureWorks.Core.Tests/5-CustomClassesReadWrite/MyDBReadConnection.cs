@@ -1,10 +1,5 @@
-﻿using AdventureWorks.Core.Domain.Entities;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
-using System;
-using System.Collections.Generic;
+﻿using Harbin.DataAccess.Connections;
 using System.Data;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClassesReadWrite
 {

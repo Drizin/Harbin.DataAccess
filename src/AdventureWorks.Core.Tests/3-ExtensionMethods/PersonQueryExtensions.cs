@@ -1,8 +1,6 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
-using System;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.ExtensionMethods
 {

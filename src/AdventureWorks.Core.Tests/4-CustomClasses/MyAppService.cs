@@ -1,4 +1,5 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;

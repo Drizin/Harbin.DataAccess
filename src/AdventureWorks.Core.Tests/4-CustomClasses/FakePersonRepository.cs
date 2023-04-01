@@ -1,15 +1,12 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
-using System;
+using Harbin.DataAccess.Connections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClasses
 {
     public class FakePersonRepository : PersonRepository
     {
-        public FakePersonRepository(MyDBConnection db) : base(db)
+        public FakePersonRepository(IReadWriteDbConnection db) : base(db)
         {
         }
         public override IEnumerable<Person> GetBestCustomers()

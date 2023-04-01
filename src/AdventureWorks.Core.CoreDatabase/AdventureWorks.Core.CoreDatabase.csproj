@@ -14,16 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AdventureWorks.Core.Domain\AdventureWorks.Core.Domain.csproj" />
-    <ProjectReference Include="..\Harbin.DataAccess.DapperFastCRUD\Harbin.DataAccess.DapperFastCRUD.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="CodeGenerator\FastCRUD-GenericModelGenerator.tt">
-      <Generator></Generator>
-    </None>
-    <None Update="CodeGenerator\FastCRUD-SampleModelGeneratorConfig.tt">
-      <Generator></Generator>
-    </None>
+    <ProjectReference Include="..\Harbin.DataAccess.Repositories.DapperSimpleCRUD\Harbin.DataAccess.Repositories.DapperSimpleCRUD.csproj" />
   </ItemGroup>
 
   <ItemGroup>

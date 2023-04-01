@@ -1,8 +1,5 @@
-﻿using Harbin.DataAccess.DapperFastCRUD.Connections;
-using System;
-using System.Collections.Generic;
+﻿using Harbin.DataAccess.Connections;
 using System.Data;
-using System.Text;
 
 namespace AdventureWorks.Core.CoreDatabase
 {

@@ -1,8 +1,7 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using System;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClassesReadWrite
 {

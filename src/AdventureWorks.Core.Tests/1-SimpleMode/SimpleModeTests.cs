@@ -1,12 +1,9 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Dapper;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
+using Harbin.DataAccess.Connections;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using Microsoft.Extensions.Configuration;
-using Moq;
-using Moq.Dapper;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -111,18 +108,6 @@ namespace AdventureWorks.Core.Tests.SimpleMode
                 trans.Commit();
             }
         }
-
-        [Test]
-        public void FastCrud_BulkCount()
-        {
-            var conn = new ReadDbConnection(new System.Data.SqlClient.SqlConnection(cnStr));
-            var repo = conn.GetReadRepository<Person>();
-            var count = repo.Count();
-            var count2 = repo.Count(statement => statement
-                .Where($"{nameof(Person.FirstName):C}=@firstName")
-                .WithParameters(new { firstName = "John" }));
-        }
-
 
     }
 }

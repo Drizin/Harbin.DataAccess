@@ -1,15 +1,11 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Dapper;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
+using AdventureWorks.Core.Tests.CustomClassesReadWrite;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClasses
 {
@@ -24,6 +20,14 @@ namespace AdventureWorks.Core.Tests.CustomClasses
     {
         string cnStr = ConfigurationHelper.Configuration.Value.GetConnectionString("DefaultConnection");
 
+        [TearDown]
+        public void TearDown()
+        {
+            DefaultFactories.ReadWriteDbRepositoryFactory = new ReadWriteDbRepositoryFactory();
+            DefaultFactories.ReadDbRepositoryFactory = new ReadDbRepositoryFactory();
+            DefaultFactories.ReadDbRepositoryFactory = new ReadDbRepositoryFactory();
+        }
+
 
         /// <summary>
         /// Service receive MyDBConnection (which is a ReadWriteDbConnection) 
@@ -33,6 +37,7 @@ namespace AdventureWorks.Core.Tests.CustomClasses
         public void TestRealDatabase()
         {
             var conn = new MyDBConnection(new System.Data.SqlClient.SqlConnection(cnStr));
+            DefaultFactories.ReadWriteDbRepositoryFactory.RegisterTransient<Person, PersonRepository>(conn => new PersonRepository(conn));
 
             var svc = new MyAppService(conn);
             var bestCustomers = svc.GetUpdatedBestCustomers();
@@ -46,6 +51,7 @@ namespace AdventureWorks.Core.Tests.CustomClasses
         public void TestManuallyMockedRepository()
         {
             var conn = new FakeMyDBConnection();
+            DefaultFactories.ReadWriteDbRepositoryFactory.RegisterTransient<Person, PersonRepository>(conn => new FakePersonRepository(conn));
 
             var svc = new MyAppService(conn);
             var bestCustomers = svc.GetUpdatedBestCustomers();

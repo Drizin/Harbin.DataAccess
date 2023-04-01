@@ -1,16 +1,14 @@
 ﻿using AdventureWorks.Core.Domain.Entities;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
-using Harbin.DataAccess.DapperFastCRUD.Repositories;
-using System;
+using Harbin.DataAccess.Connections;
+using Harbin.DataAccess.Repositories.DapperSimpleCRUD;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AdventureWorks.Core.Tests.CustomClasses
 {
     public class PersonRepository : ReadWriteDbRepository<Person>
     {
         protected PersonRepository() : base(null) { } // Moq requires empty constructor
-        public PersonRepository(MyDBConnection db) : base(db)
+        public PersonRepository(IReadWriteDbConnection db) : base(db)
         {
         }
         public virtual IEnumerable<Person> GetBestCustomers()
