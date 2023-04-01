@@ -5,7 +5,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperFastCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperFastCRUD
 {
     /// <summary>
     /// Repositories encapsulate storage/retrieval/search of objects.
@@ -34,16 +34,16 @@ namespace Harbin.DataAccess.DapperFastCRUD.Repositories
         IEnumerable<TEntity> QueryAll();
 
         /// <summary>
-        /// Builds a DapperQueryBuilder, initialized with "SELECT * FROM tableName", 
+        /// Builds a DapperQueryBuilder, initialized with "SELECT * FROM tableName /**where**/", 
         /// where you can append your conditions using interpolated strings which are converted into SqlParameters.
         /// </summary>
-        DapperQueryBuilder<TEntity> QueryBuilder();
+        IDapperQueryBuilder<TEntity> QueryBuilder();
 
         /// <summary>
         /// Builds a DapperQueryBuilder, initialized with an initial query, 
         /// where you can append your conditions using interpolated strings which are converted into SqlParameters.
         /// </summary>
-        DapperQueryBuilder<TEntity> QueryBuilder(FormattableString query);
+        IDapperQueryBuilder<TEntity> QueryBuilder(FormattableString query);
 
         #region IReadDbConnection.Query<TEntity> -> Dapper.Query<TEntity>
         /// <summary>

@@ -23,8 +23,7 @@
             <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1"/> </summary>
         </member>
         <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories">
-            <summary>
-            </summary>
+            <summary>Default Factories</summary>
         </member>
         <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories.ReadWriteDbRepositoryFactory">
             <summary></summary>
@@ -36,9 +35,7 @@
             <summary></summary>
         </member>
         <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1">
-            <summary>
-            </summary>
-            <typeparam name="DB"></typeparam>
+            <summary>Default Factories</summary>
         </member>
         <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1.ReadWriteDbRepositoryFactory">
             <summary></summary>

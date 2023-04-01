@@ -1,14 +1,11 @@
-﻿using Harbin.DataAccess.DapperFastCRUD.Connections;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using Harbin.DataAccess.Connections;
 
-namespace Harbin.DataAccess.DapperFastCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperFastCRUD
 {
     /// <inheritdoc/>
     public class ReadDbRepository<TEntity, DB> : ReadDbRepository<TEntity>, IReadDbRepository<TEntity, DB>
     {
+        /// <inheritdoc/>
         public ReadDbRepository(IReadDbConnection<DB> db) : base(db)
         {
         }

@@ -6,7 +6,7 @@
     <RootNamespace>Harbin.DataAccess.Repositories.DapperSimpleCRUD</RootNamespace>
 	<Authors>Rick Drizin</Authors>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<PackageProjectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.Repositories/</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.Repositories.DapperSimpleCrud/</PackageProjectUrl>
 	<Description>
 		Data Access library based on Dapper and DapperQueryBuilder.
 		Helps to manage connections to distributed databases and/or read-replicas, 

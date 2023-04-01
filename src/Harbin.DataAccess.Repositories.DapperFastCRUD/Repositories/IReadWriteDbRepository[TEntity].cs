@@ -5,7 +5,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperFastCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperFastCRUD
 {
     /// <summary>
     /// Repositories encapsulate storage/retrieval/search of objects.

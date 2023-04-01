@@ -348,4 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/src/Harbin.DataAccess/Harbin.DataAccess.xml
+/src/Harbin.DataAccess.Connections/Harbin.DataAccess.Connections.xml
+/src/Harbin.DataAccess.Repositories.DapperSimpleCRUD/Harbin.DataAccess.Repositories.DapperSimpleCRUD.xml
+/src/Harbin.DataAccess.Repositories.DapperFastCRUD/Harbin.DataAccess.Repositories.DapperFastCRUD.xml

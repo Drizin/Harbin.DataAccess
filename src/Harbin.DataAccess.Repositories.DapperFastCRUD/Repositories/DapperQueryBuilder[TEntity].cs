@@ -4,15 +4,15 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using DapperQueryBuilder;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
+using Harbin.DataAccess.Connections;
 
-namespace Harbin.DataAccess.DapperFastCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperFastCRUD
 {
     /// <summary>
     /// Wraps DapperQueryBuilder library but simplifying the Query extensions to show only the extensions which return the type TEntity 
     /// of the repository entity
     /// </summary>
-    public class DapperQueryBuilder<TEntity>
+    public class DapperQueryBuilder<TEntity> : IDapperQueryBuilder<TEntity>
     {
         protected readonly IReadDbConnection _db;
         protected readonly DapperQueryBuilder.QueryBuilder _builder;

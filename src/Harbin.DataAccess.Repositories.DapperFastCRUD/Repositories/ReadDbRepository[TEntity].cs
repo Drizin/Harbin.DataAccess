@@ -1,12 +1,11 @@
 ﻿using Dapper.FastCrud.Configuration.StatementOptions.Builders;
-using Harbin.DataAccess.DapperFastCRUD.Connections;
+using Harbin.DataAccess.Connections;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperFastCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperFastCRUD
 {
     /// <inheritdoc/>
     public class ReadDbRepository<TEntity> : IReadDbRepository<TEntity>
@@ -115,13 +114,13 @@ namespace Harbin.DataAccess.DapperFastCRUD.Repositories
 
         #region DapperQueryBuilder
         /// <inheritdoc/>
-        public virtual DapperQueryBuilder<TEntity> QueryBuilder()
+        public virtual IDapperQueryBuilder<TEntity> QueryBuilder()
         {
             return new DapperQueryBuilder<TEntity>(_db, $"SELECT * FROM {_tableName:raw} /**where**/");
         }
 
         /// <inheritdoc/>
-        public virtual DapperQueryBuilder<TEntity> QueryBuilder(FormattableString query)
+        public virtual IDapperQueryBuilder<TEntity> QueryBuilder(FormattableString query)
         {
             return new DapperQueryBuilder<TEntity>(_db, query);
         }
