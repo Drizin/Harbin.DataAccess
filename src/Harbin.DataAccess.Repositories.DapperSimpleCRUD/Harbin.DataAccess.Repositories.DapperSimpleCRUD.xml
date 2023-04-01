@@ -1,0 +1,749 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Harbin.DataAccess.Repositories.DapperSimpleCRUD</name>
+    </assembly>
+    <members>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ConnectionExtensions.GetReadWriteRepository``1(Harbin.DataAccess.Connections.IReadWriteDbConnection)">
+            <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories"/> </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ConnectionExtensions.GetReadOnlyRepository``1(Harbin.DataAccess.Connections.IReadOnlyDbConnection)">
+            <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories"/> </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ConnectionExtensions.GetReadRepository``1(Harbin.DataAccess.Connections.IReadDbConnection)">
+            <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories"/> </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ConnectionExtensions.GetReadWriteRepository``2(Harbin.DataAccess.Connections.IReadWriteDbConnection{``1})">
+            <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1"/> </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ConnectionExtensions.GetReadOnlyRepository``2(Harbin.DataAccess.Connections.IReadOnlyDbConnection{``1})">
+            <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1"/> </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ConnectionExtensions.GetReadRepository``2(Harbin.DataAccess.Connections.IReadDbConnection{``1})">
+            <summary>Creates Repository using the factories defined in <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1"/> </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories.ReadWriteDbRepositoryFactory">
+            <summary></summary>
+        </member>
+        <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories.ReadDbRepositoryFactory">
+            <summary></summary>
+        </member>
+        <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories.ReadOnlyDbRepositoryFactory">
+            <summary></summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1">
+            <summary>
+            </summary>
+            <typeparam name="DB"></typeparam>
+        </member>
+        <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1.ReadWriteDbRepositoryFactory">
+            <summary></summary>
+        </member>
+        <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1.ReadDbRepositoryFactory">
+            <summary></summary>
+        </member>
+        <member name="F:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DefaultFactories`1.ReadOnlyDbRepositoryFactory">
+            <summary></summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory">
+            <summary>
+            Factory for Read-Only DbRepositories
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory.Create``1(Harbin.DataAccess.Connections.IReadDbConnection)">
+            <summary>
+            Creates a Read-Only DbRepository
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadDbConnection,``1})">
+            <summary>
+            Registers a repository factory for the entity.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository{``0})">
+            <summary>
+            Registers a singleton repository for the entity.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory`1">
+            <summary>
+            Factory for Read-Only DbRepositories
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory`1.Create``1(Harbin.DataAccess.Connections.IReadDbConnection{`0})">
+            <summary>
+            Creates a Read-Only DbRepository
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory`1.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadDbConnection{`0},``1})">
+            <summary>
+            Registers a repository factory for the entity.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepositoryFactory`1.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository{``0})">
+            <summary>
+            Registers a singleton repository for the entity.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory">
+            <summary>
+            Factory for Read-Only DbRepositories
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory.Create``1(Harbin.DataAccess.Connections.IReadOnlyDbConnection)">
+            <summary>
+            Creates a Read-Only DbRepository
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadOnlyDbConnection,``1})">
+            <summary>
+            Registers a repository factory for the entity.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository{``0})">
+            <summary>
+            Registers a singleton repository for the entity.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory`1">
+            <summary>
+            Factory for Read-Only DbRepositories
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory`1.Create``1(Harbin.DataAccess.Connections.IReadOnlyDbConnection{`0})">
+            <summary>
+            Creates a Read-Only DbRepository
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory`1.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadOnlyDbConnection{`0},``1})">
+            <summary>
+            Registers a repository factory for the entity.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepositoryFactory`1.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository{``0})">
+            <summary>
+            Registers a singleton repository for the entity.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory">
+            <summary>
+            Factory for Read-Write DbRepositories
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory.Create``1(Harbin.DataAccess.Connections.IReadWriteDbConnection)">
+            <summary>
+            Creates a Read-Write DbRepository
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadWriteDbConnection,``1})">
+            <summary>
+            Registers a repository factory for the entity.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository{``0})">
+            <summary>
+            Registers a singleton repository for the entity.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory`1">
+            <summary>
+            Factory for Read-Write DbRepositories
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory`1.Create``1(Harbin.DataAccess.Connections.IReadWriteDbConnection{`0})">
+            <summary>
+            Creates a Read-Write DbRepository
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory`1.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadWriteDbConnection{`0},``1})">
+            <summary>
+            Registers a repository factory for the entity.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepositoryFactory`1.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository{``0})">
+            <summary>
+            Registers a singleton repository for the entity.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory.Create``1(Harbin.DataAccess.Connections.IReadDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadDbConnection,``1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory`1.Create``1(Harbin.DataAccess.Connections.IReadDbConnection{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory`1.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadDbConnection{`0},``1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepositoryFactory`1.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory.Create``1(Harbin.DataAccess.Connections.IReadOnlyDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadOnlyDbConnection,``1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory`1.Create``1(Harbin.DataAccess.Connections.IReadOnlyDbConnection{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory`1.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadOnlyDbConnection{`0},``1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepositoryFactory`1.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory.Create``1(Harbin.DataAccess.Connections.IReadWriteDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadWriteDbConnection,``1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory`1.Create``1(Harbin.DataAccess.Connections.IReadWriteDbConnection{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory`1.RegisterTransient``2(System.Func{Harbin.DataAccess.Connections.IReadWriteDbConnection{`0},``1})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepositoryFactory`1.RegisterSingleton``1(Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository{``0})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1">
+            <summary>
+            Wraps DapperQueryBuilder library but simplifying the Query extensions to show only the extensions which return the type TEntity 
+            of the repository entity
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.Append(System.FormattableString)">
+            <summary>
+                Appends a statement to the current command.
+                Parameters embedded using string-interpolation will be automatically converted
+                into Dapper parameters.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.AppendLine(System.FormattableString)">
+            <summary>
+                Appends a statement to the current command, but before statement adds a linebreak.
+                Parameters embedded using string-interpolation will be automatically converted
+                into Dapper parameters.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.Where(DapperQueryBuilder.Filter)">
+            <summary>
+               Adds a new condition to where clauses.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.Where(DapperQueryBuilder.Filters)">
+            <summary>
+               Adds a new condition to where clauses.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.Where(System.FormattableString)">
+            <summary>
+               Adds a new condition to where clauses.
+               Parameters embedded using string-interpolation will be automatically converted
+               into Dapper parameters.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.Query(System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QueryAsync(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QueryFirst(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QueryFirstAsync(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QueryFirstOrDefault(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QueryFirstOrDefaultAsync(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QuerySingle(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QuerySingleAsync(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QuerySingleOrDefault(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.DapperQueryBuilder`1.QuerySingleOrDefaultAsync(System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+               Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`2">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1">
+            <summary>
+            Repositories encapsulate storage/retrieval/search of objects.
+            
+            IReadDbRepository{TEntity} defines generic operations 
+            like QueryAll (returns all records) or Query (you can build your own SQL query).
+            
+            This Repository is a Persistence-Based repository,
+            as described by Vaughn Vernon in "Implementing Domain-Driven Design" book, 
+            where he makes a distinction between collection-based repositories and persistence-based repositories.
+            
+            This does NOT emulate a collection of objects, as it was described by Eric Evans in "Domain-Driven Design" book.
+            
+            Since the Repository wraps classes which are a direct representation of our tables it could also be called DAO.
+            
+            ReadDbRepository{TEntity} can be used in multiple ways:
+            - You can use ReadDbRepository{TEntity} and use "Query" methods by providing your filters
+            - You can extend it using extension methods to create reusable Queries methods (or QueryObjects)
+            - You can extend it using inheritance to create reusable Queries (or QueryObjects) which can be overriden in derived Mock classes.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryAll">
+            <summary>
+            Returns all records. SELECT * FROM tableName.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryBuilder">
+            <summary>
+            Builds a DapperQueryBuilder, initialized with "SELECT * FROM tableName /**where**/", 
+            where you can append your conditions using interpolated strings which are converted into SqlParameters.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryBuilder(System.FormattableString)">
+            <summary>
+            Builds a DapperQueryBuilder, initialized with an initial query, 
+            where you can append your conditions using interpolated strings which are converted into SqlParameters.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.Query(System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryFirst(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryFirstOrDefault(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QuerySingle(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QuerySingleOrDefault(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+            (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryFirstAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+            (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QueryFirstOrDefaultAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+            (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QuerySingleAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+            (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.QuerySingleOrDefaultAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the query (using Dapper), returning the data typed as T.
+            Queries can be like "SELECT * FROM TableName WHERE conditions", or "WHERE conditions", or just "conditions".
+            (SQL is automatically adjusted if you don't provide "SELECT" or "WHERE" keywords)
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.FirstOrDefault(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Searches by TEntity entityKeys which should filter your record.
+            In  Dapper SimpleCRUD this is known as "Get", in some other Repository implementations this is known as "GetById". 
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.FirstOrDefaultAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Searches by TEntity entityKeys which should filter your record.
+            In  Dapper SimpleCRUD this is known as "Get", in some other Repository implementations this is known as "GetById". 
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetList">
+            <summary>
+            Gets all records
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetList(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Searches records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetList(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Searches records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetListAsync">
+            <summary>
+            Searches records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetListAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Searches records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetListAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Searches records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetListPaged(System.Int32,System.Int32,System.String,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Gets a paged list of entities with optional exact match where conditions
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.GetListPagedAsync(System.Int32,System.Int32,System.String,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Gets a paged list of entities with optional exact match where conditions
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.RecordCount(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Count records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.RecordCount(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Count records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.RecordCountAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Count records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadDbRepository`1.RecordCountAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Count records by passing a query statement using Dapper SimpleCRUD syntax.
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository`2">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository`1">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`2">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1">
+            <summary>
+            Repositories encapsulate storage/retrieval/search of objects.
+            
+            While <see cref="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadOnlyDbRepository`1"/> only offers read methods, this one also offers write methods (Insert/Update/Delete).
+            
+            Insert/Update/Delete are implemened by FastCRUD, but you can override those methods write your own.
+            
+            ReadDbRepository{TEntity}/ReadWriteDbRepository{TEntity} can be used in multiple ways:
+            - You can use those classes directly and use their methods ("Query", "Insert", "Update", etc).
+            - You can extend it using extension methods to create reusable Queries methods, QueryObjects, DbCommands.
+            - You can extend it using inheritance to create reusable Queries, QueryObjects, DbCommands, which can be overriden in derived Mock classes.
+            
+            ReadWriteDbRepository{TEntity} implements the "Generic Repository Pattern" because it uses FastCRUD to automatically
+            generate the INSERT/UPDATE/DELETE statements.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.Insert(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Inserts a new record. Default implementation (unless overriden) uses Dapper FastCRUD
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.InsertAsync(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Inserts a new record. Default implementation (unless overriden) uses Dapper FastCRUD
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.Update(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Updates a record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.UpdateAsync(`0,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Threading.CancellationToken})">
+            <summary>
+            Updates a record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.Delete(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Deletes record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.DeleteAsync(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Deletes record by the primary key. Default implementation (unless overriden) uses Dapper FastCRUD
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.Execute(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the command (using Dapper), returning the number of rows affected.
+            Warning: this uses the underlying read-write connection and can use ANY table, so it's up to the developer to write the commands in the correct repository.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.ExecuteAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <summary>
+            Executes the command (using Dapper), returning the number of rows affected.
+            Warning: this uses the underlying read-write connection and can use ANY table, so it's up to the developer to write the commands in the correct repository.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.DeleteList(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Deletes a list of records in the database
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.DeleteList(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Deletes a list of records in the database
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.DeleteListAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Deletes a list of records in the database
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.IReadWriteDbRepository`1.DeleteListAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <summary>
+            Deletes a list of records in the database
+            </summary>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`2.#ctor(Harbin.DataAccess.Connections.IReadDbConnection{`1})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.AdjustSql(System.String)">
+            <summary>
+            If "SELECT" keyword is not provided, "SELECT * FROM tableName" will be automatically appended before your query, so you can pass only your where conditions.
+            In this case if you omit the WHERE it will also be appended automatically.
+            </summary>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.Query(System.String,System.Object,System.Data.IDbTransaction,System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryFirst(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryFirstOrDefault(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QuerySingle(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QuerySingleOrDefault(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryFirstAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryFirstOrDefaultAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QuerySingleAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QuerySingleOrDefaultAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.QueryBuilder(System.FormattableString)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.FirstOrDefault(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.FirstOrDefaultAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetList">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetList(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetList(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetListAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetListAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetListAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.RecordCount(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.RecordCount(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.RecordCountAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.RecordCountAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetListPaged(System.Int32,System.Int32,System.String,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadDbRepository`1.GetListPagedAsync(System.Int32,System.Int32,System.String,System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepository`2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepository`2.#ctor(Harbin.DataAccess.Connections.IReadDbConnection{`1})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepository`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadOnlyDbRepository`1.#ctor(Harbin.DataAccess.Connections.IReadDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`2">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`2.#ctor(Harbin.DataAccess.Connections.IReadWriteDbConnection{`1})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.#ctor(Harbin.DataAccess.Connections.IReadWriteDbConnection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.Insert(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.InsertAsync(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.Update(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.UpdateAsync(`0,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Threading.CancellationToken})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.Delete(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.DeleteAsync(`0,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.Execute(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.ExecuteAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.DeleteList(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.DeleteList(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.DeleteListAsync(System.String,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Harbin.DataAccess.Repositories.DapperSimpleCRUD.ReadWriteDbRepository`1.DeleteListAsync(System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

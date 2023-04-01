@@ -1,16 +1,13 @@
-﻿using Harbin.DataAccess.DapperSimpleCRUD.Connections;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using Harbin.DataAccess.Connections;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperSimpleCRUD
 {
     /// <inheritdoc/>
     public class ReadWriteDbRepository<TEntity, DB> : ReadWriteDbRepository<TEntity>, IReadWriteDbRepository<TEntity>, IReadWriteDbRepository<TEntity, DB>
     {
         new protected readonly IReadWriteDbConnection<DB> _db;
 
+        /// <inheritdoc/>
         public ReadWriteDbRepository(IReadWriteDbConnection<DB> db) : base(db)
         {
             _db = db;

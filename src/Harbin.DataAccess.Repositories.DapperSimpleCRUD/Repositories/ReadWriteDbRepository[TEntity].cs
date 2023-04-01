@@ -1,4 +1,4 @@
-﻿using Harbin.DataAccess.DapperSimpleCRUD.Connections;
+﻿using Harbin.DataAccess.Connections;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperSimpleCRUD
 {
     /// <inheritdoc/>
     public class ReadWriteDbRepository<TEntity> : ReadDbRepository<TEntity>, IReadWriteDbRepository<TEntity>
@@ -19,6 +19,7 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
         static protected MethodInfo _insertMethod;
         static protected MethodInfo _insertAsyncMethod;
 
+        /// <inheritdoc/>
         public ReadWriteDbRepository(IReadWriteDbConnection db) : base(db)
         {
             _db = db;

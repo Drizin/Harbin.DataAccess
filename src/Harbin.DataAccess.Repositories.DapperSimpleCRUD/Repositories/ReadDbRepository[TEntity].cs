@@ -1,12 +1,11 @@
-﻿using Harbin.DataAccess.DapperSimpleCRUD.Connections;
+﻿using Harbin.DataAccess.Connections;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
+namespace Harbin.DataAccess.Repositories.DapperSimpleCRUD
 {
     /// <inheritdoc/>
     public class ReadDbRepository<TEntity> : IReadDbRepository<TEntity>
@@ -15,7 +14,7 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
 
         #region Members
         protected readonly IReadDbConnection _db;
-        protected string _tableName;
+        protected readonly string _tableName;
         #endregion Members
 
         #region ctors
@@ -117,18 +116,17 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
 
         #region DapperQueryBuilder
         /// <inheritdoc/>
-        public virtual DapperQueryBuilder<TEntity> QueryBuilder()
+        public virtual IDapperQueryBuilder<TEntity> QueryBuilder()
         {
             return new DapperQueryBuilder<TEntity>(_db, $"SELECT * FROM {_tableName:raw} /**where**/");
         }
 
         /// <inheritdoc/>
-        public virtual DapperQueryBuilder<TEntity> QueryBuilder(FormattableString query)
+        public virtual IDapperQueryBuilder<TEntity> QueryBuilder(FormattableString query)
         {
             return new DapperQueryBuilder<TEntity>(_db, query);
         }
         #endregion
-
 
         #region Dapper.SimpleCRUD specific methods
 
@@ -214,7 +212,6 @@ namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
         }
 
         #endregion
-
 
     }
 }

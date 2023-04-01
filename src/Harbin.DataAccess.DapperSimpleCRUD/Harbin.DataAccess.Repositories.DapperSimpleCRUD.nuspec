@@ -1,21 +1,22 @@
 <?xml version="1.0"?>
 <package >
 	<metadata>
-		<id>Harbin.DataAccess.DapperSimpleCRUD</id>
-		<version>1.0.5</version>
-		<title>Harbin.DataAccess.DapperSimpleCRUD</title>
+		<id>Harbin.DataAccess.Repositories.DapperSimpleCRUD</id>
+		<version>2.0.0</version>
+		<title>Harbin.DataAccess.Repositories.DapperSimpleCRUD</title>
 		<authors>Rick Drizin</authors>
 		<owners>Rick Drizin</owners>
 		<license type="expression">MIT</license>
-		<projectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.DapperSimpleCRUD</projectUrl>
+		<projectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.Repositories.DapperSimpleCRUD</projectUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>
-			Data Access library based on Dapper, Dapper.SimpleCRUD, and DapperQueryBuilder.
-			Implement Repositories (Generic Repository Pattern) and helps to manage connections to distributed databases and/or read-replicas.
+		Data Access library based on Dapper and DapperQueryBuilder.
+		Helps to manage connections to distributed databases and/or read-replicas, 
+		and implements Generic Repository Pattern using DapperSimpleCRUD.
 		</description>
 		<copyright>Copyright Rick Drizin 2020</copyright>
-		<tags>data-access-library dapper dapperquerybuilder fastcrud repository-pattern</tags>
-		<repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.DapperSimpleCRUD" commit="02740e8421829973f87544d299164897b128b878" />
+		<tags>data-access-library dapper dapperquerybuilder simplecrud repository-pattern</tags>
+		<repository type="git" url="https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.Repositories.DapperSimpleCRUD" commit="02740e8421829973f87544d299164897b128b878" />
 		<dependencies>
 			<group targetFramework="net472">
 				<dependency id="Dapper" version="[2.0.0,)" exclude="Build,Analyzers" />

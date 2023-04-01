@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net472</TargetFrameworks>
+    <AssemblyName>Harbin.DataAccess.Repositories.DapperSimpleCRUD</AssemblyName>
+    <RootNamespace>Harbin.DataAccess.Repositories.DapperSimpleCRUD</RootNamespace>
+	<Authors>Rick Drizin</Authors>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageProjectUrl>https://github.com/Drizin/Harbin/blob/master/src/Harbin.DataAccess.Repositories/</PackageProjectUrl>
+	<Description>
+		Data Access library based on Dapper and DapperQueryBuilder.
+		Helps to manage connections to distributed databases and/or read-replicas, 
+		and implements Generic Repository Pattern using DapperSimpleCRUD.</Description>
+    <Copyright>Rick Drizin</Copyright>
+    <Company>Rick Drizin</Company>
+    <Version>2.0.0</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageOutputPath>..\packages-local\</PackageOutputPath>
+    <DocumentationFile>Harbin.DataAccess.Repositories.DapperSimpleCRUD.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Dapper-QueryBuilder" Version="1.2.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.1.23110.8" />
+    <PackageReference Include="Dapper.SimpleCRUD" Version="2.3.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Harbin.DataAccess.Connections\Harbin.DataAccess.Connections.csproj" />
+  </ItemGroup>
+
+</Project>

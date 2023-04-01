@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
-
-namespace Harbin.DataAccess.DapperSimpleCRUD.Repositories
+﻿namespace Harbin.DataAccess.Repositories.DapperSimpleCRUD
 {
     /// <inheritdoc/>
     public interface IReadWriteDbRepository<TEntity, DB> : IReadWriteDbRepository<TEntity>

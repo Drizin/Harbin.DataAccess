@@ -24,8 +24,8 @@ Harbin Database Library was designed based on the following ideas:
 - Everything is testable: connection wrappers and their underlying connections are also mockable.
 
 ## Installation
-Just install nuget package **[Harbin.DataAccess](https://www.nuget.org/packages/Harbin.DataAccess/)**, 
-add `using Harbin.DataAccess.DapperSimpleCRUD.Connections`, `using Harbin.DataAccess.DapperSimpleCRUD.Repositories`, and start using (see examples below).  
+Just install nuget package **[Harbin.DataAccess.Repositories.DapperSimpleCRUD](https://www.nuget.org/packages/Harbin.DataAccess.Repositories..DapperSimpleCRUD/)**, 
+add `using Harbin.DataAccess.Connections`, `using Harbin.DataAccess.Repositories.DapperSimpleCRUD`, and start using (see examples below).  
 See documentation below, or more examples in [unit tests](https://github.com/Drizin/Harbin/tree/master/src/AdventureWorks.Core.Tests).
 
 ## Documentation
